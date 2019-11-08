@@ -7,30 +7,17 @@ class DummyOtaRatesSpider(scrapy.Spider):
     """ scrapy crawl dummy_ota_rates -o rates.json """
     name = "dummy_ota_rates"
 
-    # def start_requests(self):
-    #     urls = [
-    #         'http://localhost:8282/rates/3162124/?&page=1&destination=Amsterdam&arrivalDate=2019-05-07&departureDate=2019-05-08&numPersons=2',
-    #         'http://localhost:8282/rates/3162135/?&destination=Amsterdam&arrivalDate=2019-05-07&departureDate=2019-05-08&numPersons=2',
-    #         'http://localhost:8282/rates/3162124/?&page=1&destination=Amsterdam&arrivalDate=2019-05-07&departureDate=2019-05-09&numPersons=2',
-    #     ]
-    #     for url in urls:
-    #         yield scrapy.Request(url=url, callback=self.parse)
-
     def start_requests(self):
-        url_template = 'http://localhost:8282/rates/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons=2'
+        url_template = 'http://localhost:8282/rates/{destination_id}/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons=2'
         with open('hotels.json') as f:
-            lines = json.load(f)
-        hotel_ids = []
-        for line in lines:
-            hotel_ids.extend(line['ids'])
-        hotel_ids = set(hotel_ids)
+            hotels = json.load(f)
 
-        for hotel_id in hotel_ids:
-            start_date = arrow.get('2019-01-01')
-            end_date = arrow.get('2019-12-31')
+        for hotel in hotels:
+            start_date = arrow.get('2019-11-01')
+            end_date = arrow.get('2020-12-31')
             for from_date in arrow.Arrow.range('day', start_date, end_date):
                 yield scrapy.Request(
-                    url=url_template.format(hotel_id=hotel_id, from_date=from_date.format('YYYY-MM-DD'), to_date=from_date.shift(days=1).format('YYYY-MM-DD')),
+                    url=url_template.format(destination_id=hotel["destination"], hotel_id=hotel["hotel_id"], from_date=from_date.format('YYYY-MM-DD'), to_date=from_date.shift(days=1).format('YYYY-MM-DD')),
                     callback=self.parse
                 )
 
@@ -49,18 +36,47 @@ class DummyOtaRatesSpider(scrapy.Spider):
         room_name = rate_properties[0].split(": ")[1]
 
         if 'Sold OUT' in room_name:
-            yield {
-                'arrival_date': arrival_date,
-                'departure_date': departure_date,
-                'hotel_id': hotel_id,
-                'soldout': True,
-            }
+            # yield {
+            #     'arrival_date': arrival_date,
+            #     'departure_date': departure_date,
+            #     'hotel_id': hotel_id,
+            #     'soldout': True,
+            # }
+            pass
         else:
             price_info = rate_properties[1].split(": ")[1]
             currency, _, amount = price_info.partition(' ')
 
-            breakfast_included = 'true' in rate_properties[2]
-            refundable = 'true' in rate_properties[3]
+            breakfast_included_strings = [
+                "Breakfast included: Yes",
+                "Included free breakfast",
+                "With breakfast",
+                "All meals are inclusive",
+            ]
+            breakfast_excluded_strings = [
+                "Breakfast included: No",
+                "Does not include free breakfast",
+                "No free breakfast included",
+                "No breakfast",
+                "Breakfast at additional cost",
+            ]
+
+            refundable_strings = [
+                "Refundable: Yes",
+                "Refundable",
+                "Free cancellation",
+                "Can be cancelled free of charge",
+            ]
+            non_refundable_strings = [
+            	"Non-Refundable",
+            	"No Free cancellation",
+            	"Can not be cancelled free of charge",
+            	"Cancellation incurs a fee",
+                "Refundable: No",
+            ]
+
+            breakfast_included = rate_properties[2].strip() in breakfast_included_strings
+            refundable = rate_properties[3].strip() in refundable_strings
             number_guests = rate_properties[4].split(": ")[1]
 
             yield {

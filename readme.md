@@ -1,20 +1,22 @@
-{% capture severIP %}http://localhost:8282/{% endcapture %}
-
 # 0. Gcloud SDK setup
 
 In order to work with Google Cloud services, you'll need to install the Gcloud SDK and have a Google (@gmail.com) account.
 
-- Follow the instructions on the [Gcloud SDK installation docs](https://cloud.google.com/sdk/docs/downloads-interactive).
+- Follow the instructions on the Gcloud SDK installation docs: https://cloud.google.com/sdk/docs/downloads-interactive.
 - If you don't have a Gmail account, create one and log in with it.
-- In a terminal window, type `gcloud auth login`. This will open a browser window where you can select your Gmail account.
+- In a terminal window, type `gcloud auth login`. This will open a browser window where you can select your Gmail account. There will be a message in the terminal saying you are now authenticated.
 
-If you have set this up, call us and we will grant each member of your group access to your groups' gcloud project.
+If you run into issues, we'll have a look at the start of the event itself. We'll provide a solution so you can work on a remote VM as well in case it really does not work locally.
+
+Next to that you'll need to have a Python 3 environment, and ideally you already look to install the Scrapy package: http://doc.scrapy.org/en/latest/intro/install.html#installation-guide
+
+If you have set this up, call us and we will grant each member of your group access to your groups' gcloud project. If you run into issues with software setup, give us a call and we'll have a look at the start of the event.
 
 # 1. Introduction
 
 The goal of the workshop is to extract data from a website, push that data onto a queueing system to process and clean it, store it in a large-scale database, and then run some analysis on the extracted dataset.
 
-You're going to scrape the information of a website with rates of hotel rooms. Your server is located on {{ severIP }} and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...) website containing a selected limited dataset of real rates we have taken: they come from [Booking.com](https://www.booking.com) and span about a year in the future. The data can be divided into a subset of hotel room rates from Brussels, Amsterdam, Paris and London, extracted earlier this month. Accross the site, there are some anti-bot measure being put in place which you'll have to counter. When you have extracted all the data and loaded them into a database, you'll have to answer some questions about it. The anti-bot measures are different per destination (so hotels in Amsterdam are differently behaving from hotels in London), so you can always start with the easiest destination and already look at the analytics query to calculate whatever you need. Later you can add the data about the new destinations.
+You're going to scrape the information of a website with rates of hotel rooms. Your server is located on [http://35.195.124.189:31123/](http://35.195.124.189:31123/) and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...) website containing a selected limited dataset of real rates we have taken: they come from [Booking.com](https://www.booking.com) and span about a year in the future. The data can be divided into a subset of hotel room rates from Brussels, Amsterdam, Paris and London, extracted earlier this month. Accross the site, there are some anti-bot measure being put in place which you'll have to counter. When you have extracted all the data and loaded them into a database, you'll have to answer some questions about it. The anti-bot measures are different per destination (so hotels in Amsterdam are differently behaving from hotels in London), so you can always start with the easiest destination and already look at the analytics query to calculate whatever you need. Later you can add the data about the new destinations.
 
 If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out.
 

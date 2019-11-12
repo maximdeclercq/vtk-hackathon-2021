@@ -1,5 +1,15 @@
 {% capture severIP %}http://localhost:8282/{% endcapture %}
 
+# 0. Gcloud SDK setup
+
+In order to work with Google Cloud services, you'll need to install the Gcloud SDK and have a Google (@gmail.com) account.
+
+- Follow the instructions on the [Gcloud SDK installation docs](https://cloud.google.com/sdk/docs/downloads-interactive).
+- If you don't have a Gmail account, create one and log in with it.
+- In a terminal window, type `gcloud auth login`. This will open a browser window where you can select your Gmail account.
+
+If you have set this up, call us and we will grant each member of your group access to your groups' gcloud project.
+
 # 1. Introduction
 
 The goal of the workshop is to extract data from a website, push that data onto a queueing system to process and clean it, store it in a large-scale database, and then run some analysis on the extracted dataset.
@@ -27,6 +37,8 @@ In order to start, you can checkout the skeleton repository on [Github: blank sc
 mkvirtualenv workshop-scrapy
 pip install -r requirements.txt
 ```
+
+*Note: it is possible that Scrapy does not install on your machine. If you encounter issues, have a look on the [Scrapy installation instructions](http://doc.scrapy.org/en/latest/intro/install.html#platform-specific-installation-notes) if one of the solutions there solves your problem. If you are unable to install it, we can setup a VM for you to work on. Ideally you can work locally though, as debugging and viewing your code is a lot easier that way. However we don't want you to get stuck on just the installation phase.*
 
 ### Get all the available hotels and their info present on the site
 
@@ -501,4 +513,28 @@ SELECT destination, COUNT(DISTINCT hotel_id) AS num_hotels, SUM(room_count) AS n
 
 ## Analysis questions - Pandas
 
-TODO: write out doc
+This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
+
+### Dataset info
+
+In your BigQuery tables, you can find the table `hackathon_vtk_amsterdam_rates`. This is a dataset containing hotel rates from Amsterdam with arrival dates ranging from `2019-02-01` to `2019-05-31`, and extract date ranging from `2019-02-01` to `2019-04-30`. This means it contains for a certain arrival date several versions of a rate, scraped on different dates. So, assuming a fixed arrival date of e.g. `2019-03-17`, the dataset contains the price which was advertised (and which we scraped) on `2019-02-01`, on `2019-02-02`, on `2019-02-03`, ... until `2019-03-16`. The difference between the arrival date and the extract date is called the `lead time`. Specifically, he dataset contains lead times starting from *80* days before a certain arrival date up until the day before the arrival date. This dimensions allows to investigate the behaviour or prices when you come closer to the actual date of your stay.
+
+Apart from the date characteristics, these are rates with some fixed dimensions; they are all for a stay of 1 night, for a room which suits 2 people, the rates are refundable without cost, ... to allow fair comparison. These fixed dimensions are not present in the table as columns, as they are not necessary for the task at hand. The schema does contain the price amount, the arrival and extract dates, the room name of the rate, and the hotel id. There are about 3.3 million rows in the table. Every row represents an available room for an extract date.
+
+You'll also find the table `hackathon_vtk_amsterdam_events`. This contains a set of events happening in Amsterdam between `2019-02-01` and `2019-06-01`, so they could have an impact on the rates being contained in the rates table.
+
+### 2. Analysis with Pandas
+
+The analysis should be performed in a Python Notebook using Pandas.
+
+Go to the [Google Colab](https://colab.research.google.com/) and Upload `data/solution.ipynb` in there to fire up a notebook. Alternatively, you can run this notebook locally if you happen to have the necessary software installed. Follow the instructions in the notebook from there.
+
+Some charts referenced in the notebook:
+
+Count of available rooms over all extract_dates coloured by from_date:
+
+![Availability per from_date](docs_images/availability.png)
+
+Filtered version without lead times < 10
+
+![Availability per from_date - filtered](docs_images/availability_filtered.png)

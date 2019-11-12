@@ -5,15 +5,18 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
-from workshop.pubsub import send_message
 import json
+
+from workshop.pubsub import send_hotels_message, send_rates_message
 
 
 class WorkshopPipeline(object):
     """ Write each item to pubsub here """
 
     def process_item(self, item, spider):
-        # if spider.name == 'dummy_ota_rates':
-        #     send_message(item)
+        if spider.name == 'ota_rates':
+            send_rates_message(item)
+        elif spider.name == 'ota_hotels':
+            send_hotels_message(item)
 
         return item

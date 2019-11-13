@@ -174,7 +174,7 @@ Issue: Add middleware to handle 429 rate limiting
 
 Now that you have (some of) the hotels in the inventory of the site, you can start getting the rates for them. The file `workshop/spiders/ota_rates.py` will the spider for the rates. Implement it in the same way as you have done the previous spider. Look around on the website for how the url's are structured so you can generate them in `start_requests`. Going via the search form every time and looping through the results would be very inneficient (in reality not feasible). The hotels available on the website are available in the json you made in the previous step, so use that to generate requests.
 
-Our dataset contains rates with number of persons 1 or 2, arrival dates ranging from `2019-11-06` to `2020-11-30`, and number of nights ranging from 1 till 7. Make a `start_requests` method to loop over all destinations, all hotels in each destination, and all the date ranges.
+Our dataset contains rates with number of persons in a room being 1 or 2, arrival dates ranging from `2019-11-06` to `2020-11-30`, and number of nights for a stay ranging from 1 up until (and including) 3. Make a `start_requests` method to loop over all destinations, all hotels in each destination, and all the date ranges.
 
 Extract the properties of each rate and yield a dictionary from your parse function. For the time being, also use the `-o rates.json` flag to store the results in a json file. You can inspect the results easily this way, and in the next step you'll push them to a queue as you do when scaling up to handle larger amounts of data.
 

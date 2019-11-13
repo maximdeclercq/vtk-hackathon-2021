@@ -171,6 +171,8 @@ Our dataset contains rates with number of persons in a room being 1 or 2, arriva
 
 Extract the properties of each rate and yield a dictionary from your parse function. For the time being, also use the `-o rates.json` flag to store the results in a json file. You can inspect the results easily this way, and in the next step you'll push them to a queue as you do when scaling up to handle larger amounts of data.
 
+*Note: we advise to store as much raw information as possible in the item you are yielding. The goal of the scraper is to just collect web pages, extract parts of it and then push them to a later component. That later component (the transform step) will then process the item and this is where you'll do things like string parsing of raw information in your item. This allows you to do a bugfix in your transformation step if you encounter e.g. a new type of breakfast-included message and reprocess all the items on the queue with the latest transformation code to correct things in your database, without having to recrawl.*
+
 Note that you likely won't be able to access all rates with your first attempt. This is intentional :) **Focus on the rates in Amsterdam first to get your crawler going.** Once Amsterdam works, see the part 2.a.3 for adding data for others.
 
 ### 2.a.3 Add other data than Amsterdam.
@@ -208,15 +210,17 @@ In this workshop our queueing system is [PubSub](https://cloud.google.com/pubsub
 
 ##### Setup the PubSub items in the cloud console.
 
-Create a topic and a subscription for both hotels and for rates. Do this in the [Cloud console](https://console.cloud.google.com), look for the `PubSub` part in the listview under the hamburger menu. Click on `Create topic` and make two topics, one for hotels and one for rates:
+Create a topic and a subscription for both hotels and for rates. Do this in the [Cloud console](https://console.cloud.google.com), look for the `PubSub` part in the listview under the hamburger menu. Click on `Create topic` to make topics:
 
 ![Topics](docs_images/topic_create.png)
 
-For each topic, click on it (in the column `Topic ID`, or it will open up this page after creation automatically), and add a subscription using the `Create subscription` button:
+For each topic, click on it (in the column `Topic ID`, or it will open up this page after creation automatically), to add subscriptions using the `Create subscription` button:
 
 ![Subscriptions](docs_images/sub_create.png)
 
-Fill in the name of the subscription (which you can choose yourself) and leave the rest as defaults.
+Fill in the name of the subscription (which you can choose yourself), tick the box at the bottom saying `Retain acknowledged messages`, and leave the rest as defaults.
+
+**Note: as you will likely scrape destination per destination separately, and you might encounter issues with destinations which you don't have with others, it is advised to separate them in pubsub and bigquery. You can make one topic called 'rates' and make separate subscriptions for each destination. That way, if you have fixed a bug in your data transformation and parsing, related to a certain destination, you can reprocess all the messages for a certain destination by replaying all the messages from one subscription.**
 
 ##### Use the queues in Scrapy
 

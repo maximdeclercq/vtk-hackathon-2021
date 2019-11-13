@@ -42,6 +42,32 @@ pip install -r requirements.txt
 
 *Note: it is possible that Scrapy does not install on your machine. If you encounter issues, have a look on the [Scrapy installation instructions](http://doc.scrapy.org/en/latest/intro/install.html#platform-specific-installation-notes) if one of the solutions there solves your problem. If you are unable to install it, we can setup a VM for you to work on. Ideally you can work locally though, as debugging and viewing your code is a lot easier that way. However we don't want you to get stuck on just the installation phase.*
 
+#### VM setup
+
+Machine creation
+```bash
+gcloud beta compute --project=oi-hackaton-vtk2019 instances create scrapy-vm-1 --zone=europe-west1-b --machine-type=n1-highcpu-4 --subnet=default --network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=154289294847-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=scrapy-vm --image=ubuntu-1804-bionic-v20191021 --image-project=ubuntu-os-cloud --boot-disk-size=50GB --boot-disk-type=pd-standard --boot-disk-device-name=scrapy-vm-1 --reservation-affinity=any
+```
+
+Log in. TODO: does not work without VPN on.
+```bash
+gcloud beta compute --project "oi-hackaton-vtk2019" ssh --zone "europe-west1-b" "scrapy-vm-1"
+```
+
+Copy files to directory
+```bash
+gcloud compute scp --project "oi-hackaton-vtk2019" --zone "europe-west1-b" --recurse /Users/mhindery/repositories/otainsight/hackathon-scrapy/ scrapy-vm-1:~/
+```
+
+Installation
+```bash
+sudo apt-get update
+sudo apt-get install --yes python python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
+cd hackathon-scrapy
+sudo su
+pip install -r requirements.txt
+```
+
 ### Get all the available hotels and their info present on the site
 
 Note: This following description follows the scrapy tutorial on the [Scrapy Docs](https://docs.scrapy.org/en/latest/intro/tutorial.html#scrapy-tutorial), so make sure to have a look there as well.
@@ -292,7 +318,251 @@ SELECT destination, COUNT(DISTINCT hotel_id) AS num_hotels, SUM(room_count) AS n
 ]
 ```
 
+- For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric
+  
+  *You'll notice that this will require a cross join to calculate the distance from each hotel to the others in a destination. This isn't where BigQuery is very performant, so you'll need to add some filters to reduce the volume of this join. E.g. do this query destination by destination instead of all at once with a group by at the end.*
+
+    Solution: Per destination, do
+
+    ```sql
+    WITH distances AS (
+        SELECT
+        e.destination,
+        e.hotel_id as e_hotel_id,
+        e.hotel_name as e_hotel_name,
+        l.hotel_id as l_hotel_id,
+        l.hotel_name as l_hotel_name,
+        e.latitude as e_latitude,
+        l.latitude as l_latitude,
+        e.latitude-l.latitude latdiff,
+        l.longitude as l_longitude,
+        e.longitude as e_longitude,
+        e.longitude-l.longitude longdiff,
+        sqrt(((abs(e.longitude-l.longitude)) * (abs(e.longitude-l.longitude))) + ((abs(e.latitude-l.latitude)) * (abs(e.latitude-l.latitude)))) as distance
+        FROM
+        `oi-hackaton-vtk2019.workshop.hotels` e
+        JOIN
+        `oi-hackaton-vtk2019.workshop.hotels` l
+        ON 
+        # Filtering
+        e.destination = "Amsterdam" AND l.destination = "Amsterdam" AND NOT (e.hotel_id = l.hotel_id)
+    )
+
+    SELECT * FROM distances order by distance desc LIMIT 20
+    ```
+
+    Results:
+
+    - Amsterdam: 1568015 / B&B The Red House -> 543781 / De Greenhouse = 0.24829683571055355
+    - Paris: 1738888 / YOTELAIR Paris CDG - Transit Hotel -> 1929890 / Chic Boulogne Apartment = 0.383157345979431
+    - Brussels: 726272 / Auberge des 3 Fontaines -> 1747138 / Villa les bisous = 0.2247488180660683
+    - London: 1263969 / The Beaumont -> 2654957 / Luxury Apartments in Westminster = 119.9861090522311
+
 ## Rates
+
+- For these hotels, how many rates are there in the dataset, how many are refundable / nonrefundable and how many include breakfast / no breakfast?
+    - Hotel Asterisk 3 star superior
+    - Hôtel Belvue
+    - Best Western Hôtel Folkestone Opéra
+    - Hotel De Hallen
+    - Hôtel Da Vinci & Spa
+    - Heston Hyde Hotel
+    - The Concert Hotel
+    - New Linden Hotel
+    - The Toren
+    - Bedford Hotel & Congress Centre
+    - Escale Hotel
+    - Ideal Hotel
+    - Hotel des Galeries
+    - Ham Yard Hotel  Firmdale Hotels
+    - St Paul\'s Hotel
+    - Hotel Dupond-Smith
+  
+    Solution:
+    
+    ```sql
+    WITH rates_per_hotel AS (
+        SELECT hotel_id,
+        COUNT(*) as num_rates,
+        SUM(IF(refundable, 1, 0)) as refundables,
+        SUM(IF(refundable, 0, 1)) as nonrefundables,
+        SUM(IF(breakfast_included, 1, 0)) as breakfast,
+        SUM(IF(breakfast_included, 0, 1)) as nonbreakfast
+        FROM `oi-hackaton-vtk2019.workshop.rates`
+        WHERE hotel_id IN (10003, 10004, 1004657, 293614, 1027860, 1041733, 1000151, 1013770, 1002044, 1013657, 102343, 1006522, 1071176, 1328347, 1461970, 20069)
+        GROUP BY hotel_id
+    )
+
+    SELECT h.destination, h.hotel_name, h.hotel_id, r.num_rates, r.refundables, r.nonrefundables, r.breakfast, r.nonbreakfast FROM rates_per_hotel r INNER JOIN `oi-hackaton-vtk2019.workshop.hotels` h ON r.hotel_id = h.hotel_id
+    ORDER BY h.destination, h.hotel_name
+    ```
+
+    Results:
+
+    ```json
+    [
+        {
+            "destination": "Amsterdam",
+            "hotel_name": "Hotel Asterisk 3 star superior",
+            "hotel_id": "10003",
+            "num_rates": "265",
+            "refundables": "0",
+            "nonrefundables": "265",
+            "breakfast": "0",
+            "nonbreakfast": "265"
+        },
+        {
+            "destination": "Amsterdam",
+            "hotel_name": "Hotel De Hallen",
+            "hotel_id": "1004657",
+            "num_rates": "148",
+            "refundables": "0",
+            "nonrefundables": "148",
+            "breakfast": "0",
+            "nonbreakfast": "148"
+        },
+        {
+            "destination": "Amsterdam",
+            "hotel_name": "The Concert Hotel",
+            "hotel_id": "293614",
+            "num_rates": "200",
+            "refundables": "0",
+            "nonrefundables": "200",
+            "breakfast": "0",
+            "nonbreakfast": "200"
+        },
+        {
+            "destination": "Amsterdam",
+            "hotel_name": "The Toren",
+            "hotel_id": "10004",
+            "num_rates": "240",
+            "refundables": "0",
+            "nonrefundables": "240",
+            "breakfast": "2",
+            "nonbreakfast": "238"
+        },
+        {
+            "destination": "Brussels",
+            "hotel_name": "Bedford Hotel & Congress Centre",
+            "hotel_id": "20069",
+            "num_rates": "341",
+            "refundables": "206",
+            "nonrefundables": "135",
+            "breakfast": "209",
+            "nonbreakfast": "132"
+        },
+        {
+            "destination": "Brussels",
+            "hotel_name": "Escale Hotel",
+            "hotel_id": "1461970",
+            "num_rates": "44",
+            "refundables": "0",
+            "nonrefundables": "44",
+            "breakfast": "0",
+            "nonbreakfast": "44"
+        },
+        {
+            "destination": "Brussels",
+            "hotel_name": "Hotel des Galeries",
+            "hotel_id": "1071176",
+            "num_rates": "52",
+            "refundables": "3",
+            "nonrefundables": "49",
+            "breakfast": "0",
+            "nonbreakfast": "52"
+        },
+        {
+            "destination": "Brussels",
+            "hotel_name": "Hôtel Belvue",
+            "hotel_id": "1328347",
+            "num_rates": "87",
+            "refundables": "87",
+            "nonrefundables": "0",
+            "breakfast": "0",
+            "nonbreakfast": "87"
+        },
+        {
+            "destination": "London",
+            "hotel_name": "Ham Yard Hotel  Firmdale Hotels",
+            "hotel_id": "1002044",
+            "num_rates": "278",
+            "refundables": "278",
+            "nonrefundables": "0",
+            "breakfast": "278",
+            "nonbreakfast": "0"
+        },
+        {
+            "destination": "London",
+            "hotel_name": "Heston Hyde Hotel",
+            "hotel_id": "1013657",
+            "num_rates": "359",
+            "refundables": "1",
+            "nonrefundables": "358",
+            "breakfast": "0",
+            "nonbreakfast": "359"
+        },
+        {
+            "destination": "London",
+            "hotel_name": "New Linden Hotel",
+            "hotel_id": "102343",
+            "num_rates": "83",
+            "refundables": "0",
+            "nonrefundables": "83",
+            "breakfast": "83",
+            "nonbreakfast": "0"
+        },
+        {
+            "destination": "London",
+            "hotel_name": "St Paul\\'s Hotel",
+            "hotel_id": "1006522",
+            "num_rates": "359",
+            "refundables": "4",
+            "nonrefundables": "355",
+            "breakfast": "0",
+            "nonbreakfast": "359"
+        },
+        {
+            "destination": "Paris",
+            "hotel_name": "Best Western Hôtel Folkestone Opéra",
+            "hotel_id": "1013770",
+            "num_rates": "118",
+            "refundables": "2",
+            "nonrefundables": "116",
+            "breakfast": "0",
+            "nonbreakfast": "118"
+        },
+        {
+            "destination": "Paris",
+            "hotel_name": "Hotel Dupond-Smith",
+            "hotel_id": "1027860",
+            "num_rates": "89",
+            "refundables": "0",
+            "nonrefundables": "89",
+            "breakfast": "9",
+            "nonbreakfast": "80"
+        },
+        {
+            "destination": "Paris",
+            "hotel_name": "Hôtel Da Vinci & Spa",
+            "hotel_id": "1041733",
+            "num_rates": "88",
+            "refundables": "0",
+            "nonrefundables": "88",
+            "breakfast": "0",
+            "nonbreakfast": "88"
+        },
+        {
+            "destination": "Paris",
+            "hotel_name": "Ideal Hotel",
+            "hotel_id": "1000151",
+            "num_rates": "84",
+            "refundables": "0",
+            "nonrefundables": "84",
+            "breakfast": "0",
+            "nonbreakfast": "84"
+        }
+        ]
+    ```
 
 - Give the percentage of hotels per destination which were sold out on 25-12-2019
 

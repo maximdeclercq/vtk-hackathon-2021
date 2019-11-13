@@ -8,9 +8,11 @@ In order to work with Google Cloud services, you'll need to install the Gcloud S
 
 If you run into issues, we'll have a look at the start of the event itself. We'll provide a solution so you can work on a remote VM as well in case it really does not work locally.
 
-Next to that you'll need to have a Python 3 environment, and ideally you already look to install the Scrapy package: http://doc.scrapy.org/en/latest/intro/install.html#installation-guide
+Next to that you'll need to have a Python environment, and ideally you already look to install the Scrapy package: http://doc.scrapy.org/en/latest/intro/install.html#installation-guide
 
-If you have set this up, call us and we will grant each member of your group access to your groups' gcloud project. If you run into issues with software setup, give us a call and we'll have a look at the start of the event.
+If you have set this up, call us and we will grant each member of your group access to your groups' gcloud project, and give you the address of the server you'll work with.
+
+If you run into issues with software setup, give us a call and we'll have a look at the start of the event.
 
 # 1. Introduction
 
@@ -18,22 +20,26 @@ The goal of the workshop is to extract data from a website, push that data onto 
 
 You're going to scrape the information of a website with rates of hotel rooms. Your server is located on [http://35.195.124.189:31123/](http://35.195.124.189:31123/) and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...) website containing a selected limited dataset of real rates we have taken: they come from [Booking.com](https://www.booking.com) and span about a year in the future. The data can be divided into a subset of hotel room rates from Brussels, Amsterdam, Paris and London, extracted earlier this month. Accross the site, there are some anti-bot measure being put in place which you'll have to counter. When you have extracted all the data and loaded them into a database, you'll have to answer some questions about it. The anti-bot measures are different per destination (so hotels in Amsterdam are differently behaving from hotels in London), so you can always start with the easiest destination and already look at the analytics query to calculate whatever you need. Later you can add the data about the new destinations.
 
-If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out.
+If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out. If you are stuck anywhere along one of the tasks for a while, call us to help you.
 
-# 2. Website scraping
+# 2. Tasks to do
+
+Note: we recommend with 2 people starting on the scraping part (2.a.1 and 2.a.2), 1 person working on the transformation part (2.b), and 1 person starting on the data-analysis for the pre-filled dataset (3.b). As soon as you get some data from the webscraping, you can start on (3.a) where you are being asked questions about that data.
+
+## 2.a. Website scraping
 
 This part contains the steps to implement the website crawler. which will visit all pages of the website and extract some raw data from it. We'll implement it in Python using the framework [Scrapy](https://scrapy.org/). This is the most well-known and widely used scraping framework, which we ourselves run as well on a very large scale.
 
-*Note*: Each group has its own webserver. You're thus free to hammer your server without impacting other groups. It should be capable of handing the load you will generate during the workshop without much issue. Should it be misbehaving or stop working, let us know so we can have a look.
+*Note*: Each group has its own webserver. It should be capable of handing the load you will generate during the workshop without much issue. Should it be misbehaving or stop working, let us know so we can have a look.
 
 Start by looking around a bit on the site. It's a very simple website with regards to its structure and functionality. You can search for a room using the form on the homepage, which will give you a list of matching hotels, and if you click through on each, it will show you the information of the rate. For simplicity here, every combination of a hotel, arrival date and departure date only has 1 rate (or no rate of course if it doesn't offer anything for a certain period). On real websites, you'll nearly allways get multiple rates with different characteristics; different types of beds, seaside views, with or without breakfast included, some you can cancel without paying and some you cannot ... These determine the price you pay. On your target website, we have selected just one of them.
 
 ![OTA](docs_images/ota.png)
 
 
-### Setup
+#### Setup
 
-In order to start, you can checkout the skeleton repository on [Github: blank scraping repo](blank_scraping_repo). This contains a Scrapy project with the blanks in the code for you to fill in. In order to run it, you'll need to have Python (3) installed. Make a virtual environment for this project and install the requirements for it:
+In order to start, you can checkout the skeleton repository on [Github: blank scraping repo](blank_scraping_repo). This contains a Scrapy project with the blanks in the code for you to fill in. In order to run it, you'll need to have Python installed. Make a virtual environment for this project and install the requirements for it:
 
 ```bash
 mkvirtualenv workshop-scrapy
@@ -42,33 +48,20 @@ pip install -r requirements.txt
 
 *Note: it is possible that Scrapy does not install on your machine. If you encounter issues, have a look on the [Scrapy installation instructions](http://doc.scrapy.org/en/latest/intro/install.html#platform-specific-installation-notes) if one of the solutions there solves your problem. If you are unable to install it, we can setup a VM for you to work on. Ideally you can work locally though, as debugging and viewing your code is a lot easier that way. However we don't want you to get stuck on just the installation phase.*
 
-#### VM setup
+##### Work with remote VM
 
-Machine creation
+Each project has a remote machine to work with if locally your setup gives issues. Log in via SSH like this
+
 ```bash
-gcloud beta compute --project=oi-hackaton-vtk2019 instances create scrapy-vm-1 --zone=europe-west1-b --machine-type=n1-highcpu-4 --subnet=default --network-tier=PREMIUM --maintenance-policy=MIGRATE --service-account=154289294847-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=scrapy-vm --image=ubuntu-1804-bionic-v20191021 --image-project=ubuntu-os-cloud --boot-disk-size=50GB --boot-disk-type=pd-standard --boot-disk-device-name=scrapy-vm-1 --reservation-affinity=any
+gcloud beta compute --project <your-project-name> ssh --zone "europe-west1-c" "scrapy-vm-1"
 ```
 
-Log in. TODO: does not work without VPN on.
+To copy files to the remote machine, do e.g.
 ```bash
-gcloud beta compute --project "oi-hackaton-vtk2019" ssh --zone "europe-west1-b" "scrapy-vm-1"
+gcloud compute scp --project <your-project-name> --zone "europe-west1-c" --recurse /Users/mhindery/repositories/otainsight/hackathon-scrapy/ scrapy-vm:~/
 ```
 
-Copy files to directory
-```bash
-gcloud compute scp --project "oi-hackaton-vtk2019" --zone "europe-west1-b" --recurse /Users/mhindery/repositories/otainsight/hackathon-scrapy/ scrapy-vm-1:~/
-```
-
-Installation
-```bash
-sudo apt-get update
-sudo apt-get install --yes python python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
-cd hackathon-scrapy
-sudo su
-pip install -r requirements.txt
-```
-
-### Get all the available hotels and their info present on the site
+### 2.a.1 Get all the available hotels and their properties present on the site
 
 Note: This following description follows the scrapy tutorial on the [Scrapy Docs](https://docs.scrapy.org/en/latest/intro/tutorial.html#scrapy-tutorial), so make sure to have a look there as well.
 
@@ -130,7 +123,7 @@ It will output some configuration info, then the list of every url it visits, th
 
 There are 2 methods you need to implement: `start_requests` and `parse_function`. The `start_requests` function is the entry point of your scraper: here you generate a set of urls to start visiting, and for each url, the callback function that will be called with the result. In that callback function (in this case `parse_function`, you can have multiple ones and name them however you like), you extract the information from the response and yield it as a dictionary.
 
-Look in the [Scrapy tutorial part about data extracting](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) for how to get the elements you need. Start with a basic implementation in your parsing method and make sure you can reach all the hotels before getting lost in extracting the info from each hotel; due to some anti-bot measures, you won't be able to get everything at first. **Start with the hotels from Amsterdam.**
+Look in the [Scrapy tutorial part about data extracting](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) for how to get the elements you need. Start with a basic implementation in your parsing method and make sure you can reach all the hotels before getting lost in extracting the info from each hotel; due to some anti-bot measures, you won't be able to get everything at first. **Start with the hotels from Amsterdam.** Once Amsterdam works, see the part 2.a.3 for adding data for others.
 
 
 To investigate how to extract the necessary elements from the website responses, start by yielding (one or) some hardcoded urls in `start_requests`. The Scrapy docs then mention the [Scrapy shell](https://docs.scrapy.org/en/latest/topics/shell.html#topics-shell) which you can use to interactively inspect a response. You can also use [Ipdb](https://pypi.org/project/ipdb/), which opens an interactive ipython shell where you want to debug something; add this line as the first one in your function.
@@ -162,15 +155,15 @@ scrapy crawl ota_hotels -o hotels.json
 
 Note that successive runs will append to this file and not overwrite is, so it's best to remove or rename it after you made changes to your crawler.
 
-### Scale it up
+#### Scale it up
 
-Once you can succesfully crawl hotels and their info, also do the Paris hotels. You'll want to speed it up, and do some more concurrenctly. Have a look at `workshop/workshop/settings.py` to tweak some settings to increase the throughput.
+Once you can succesfully crawl hotels and their info, you'll want to speed it up, and do some more requests concurrenctly. Otherwise you won't be able to get all the data in time. Have a look at `workshop/workshop/settings.py` to tweak some of the settings to increase the throughput.
 
-Once you've increase the throughput, do some different runs and compare the output results. You might see different results (the ordering of items is irrelevent, compare the content, e.g. number of hotels you get each time ...). The differences will occur in destinations different from Amsterdam. If you look at the logs from your run, and the output statistics at the end, you might see what is causing this. Have a look around (in the Scrapy docs, Google around) how you can handle this issue with Scrapy... As a hint, this will only occur if you have increased the throughput sufficiently.
+Once you've increased the throughput, do some different runs and compare the output results. Depending on which destinations you are crawling, you might see different results (the ordering of items is irrelevent, compare the content, e.g. number of hotels you get each time ...). The differences will occur in destinations different from Amsterdam. If you look at the logs from your run, and the output statistics at the end, you might see what is causing this. Have a look around (in the Scrapy docs, Google around) what you are experiencing here and how you can handle this issue with Scrapy... As a hint, this will only occur if you have increased the throughput sufficiently.
 
 Issue: Add middleware to handle 429 rate limiting
 
-### Get the rates of all hotels on the site for the coming year.
+### 2.a.2 Get the rates of all hotels on the site for the coming year.
 
 Now that you have (some of) the hotels in the inventory of the site, you can start getting the rates for them. The file `workshop/spiders/ota_rates.py` will the spider for the rates. Implement it in the same way as you have done the previous spider. Look around on the website for how the url's are structured so you can generate them in `start_requests`. Going via the search form every time and looping through the results would be very inneficient (in reality not feasible). The hotels available on the website are available in the json you made in the previous step, so use that to generate requests.
 
@@ -178,16 +171,20 @@ Our dataset contains rates with number of persons in a room being 1 or 2, arriva
 
 Extract the properties of each rate and yield a dictionary from your parse function. For the time being, also use the `-o rates.json` flag to store the results in a json file. You can inspect the results easily this way, and in the next step you'll push them to a queue as you do when scaling up to handle larger amounts of data.
 
-Note that you likely won't be able to access all rates with your first attempt. This is intentional :) Focus on the rates in Amsterdam first to get your crawler going.
+Note that you likely won't be able to access all rates with your first attempt. This is intentional :) **Focus on the rates in Amsterdam first to get your crawler going.** Once Amsterdam works, see the part 2.a.3 for adding data for others.
 
-### Add Paris
+### 2.a.3 Add other data than Amsterdam.
+
+For different locations, the website will behave a bit different. Amsterdam is the easiest one. When you get that going, you can start looking into adding data from other locations.
+
+#### Add data for Paris
 
 At this point, try looking at the hotels and rates in Paris.
-The rates (and hotels) for Paris are likely not going to work; you'll get a 403 response. This might or might not be the case as well when you visit the page in your browser(s) (which is also the hint about what is causing this). Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request.
+The rates (and hotels) for Paris are likely not going to work; you'll get a 403 response when scraping. This might or might not be the case as well when you visit the page in your browser(s) (which is also the hint about what is causing this). Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request.
 
 Issue: It's user-agent blocking
 
-### Add London
+#### Add data for London
 
 Add the hotels and rates from London. Something is wrong on these rates, they'll likely not be parsed by your current implementation. Find out why your scraper is not working and fix it. You might have to look for alternatives here :)
 
@@ -195,25 +192,23 @@ TODO: how to suggest they need to be looking at Beautiful soup without making it
 
 Issue: Broken html, use Beautiful Soup
 
-### Add Brussels
+#### Add data for Brussels
 
 Add the hotels from Brussels. You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser. Note that the same protection as in Paris is in place for Brussels as well. If you get a 403 response, it's because that issue; this issue will be a 400 response.
 
 Issue: requires cookie with base64-encoded path in it
 
-### Push to distributed queues
+### 2.a.4 Push to distributed queues
 
 Once you start working with more data, you can't keep working with dumping to files locally. You'll likely distribute crawlers over multiple machines, scale them up and down on demand, and have them generate different kind (of subsets) of data. In this step you'll start pushing items to a queueing system. At the other end of the queueing there will be code to handle each item, in our case simply writing them to a database. You could also use this component (which we call the 'transform' step) to write each item to multiple destinations, do some statistics counting, raise alerting when some kind of items are being seen, sample items to write to a staging system or backup location ... Separating the functionality allows to scale both components independantly, write each one in the language of framework which suits its best, develop separate components faster versus having one giant piece of code which does 'everything'...
 
 In this workshop our queueing system is [PubSub](https://cloud.google.com/pubsub/) and the database is [BigQuery](https://cloud.google.com/bigquery/). Both are managed, highly scalable cloud offerings so you don't need to handle infrastructure management yourself.
 
-TODO: write some info about pubsub and bigquery? Just some slides?
-
 #### Push items to pubsub from the crawler
 
-1. Setup the PubSub items in the cloud console.
+##### Setup the PubSub items in the cloud console.
 
-Create a topic and a subscription for both hotels and for rates. Do this in the [Cloud console](https://console.cloud.google.com/cloudpubsub/topic/list?organizationId=533872574969&project=oi-hackaton-vtk2019). Click on `Create topic` and make the two subscriptions:
+Create a topic and a subscription for both hotels and for rates. Do this in the [Cloud console](https://console.cloud.google.com), look for the `PubSub` part in the listview under the hamburger menu. Click on `Create topic` and make two topics, one for hotels and one for rates:
 
 ![Topics](docs_images/topic_create.png)
 
@@ -223,17 +218,17 @@ For each topic, click on it (in the column `Topic ID`, or it will open up this p
 
 Fill in the name of the subscription (which you can choose yourself) and leave the rest as defaults.
 
-2. Use the queues in Scrapy
+##### Use the queues in Scrapy
 
 In order to send each item to pubsub, you have to write a `Pipeline` class which processes items. All items which are yielded by your parsing functions are sent through the Scrapy [Item Pipeline](https://docs.scrapy.org/en/latest/topics/item-pipeline.html) in order to be processed sequentially by all the pipelines defined in it. Have a look at the documentation for some examples what you can do with it and how to make one and enable it.
 
-Add yours in `workshop/pipelines.py` and enable it in the settings. It should start with sending each item (being a python dict) to a function (which will later post it to the pubsub queue, for now just e.g. print something). Based on the `spider.name` attribute you can differentiate between the hotels spider and the rates spider; they should both send to a different topic of course.
+In `workshop/pipelines.py` there is already such a pipeline defined, where each item can be processed. It should start with sending each item (being a python dict) to a function (which will later post it to the pubsub queue, for now just e.g. print something). Based on the `spider.name` attribute you can differentiate between the hotels spider and the rates spider; they should both send to a different topic of course.
 
-If you raise a `DropItem` exception from your pipeline, the item will no longer be processed further; if you don't, you can just add something here and it will still e.g. output the item to the command-line log.
+If you raise a `DropItem` exception from your pipeline, the item will no longer be processed further; if you don't, you can just add something here and it will still e.g. output the item to the command-line log or to json.
 
 The actual sending function is quite easy to write: have a look at the [PubSub docs](https://cloud.google.com/pubsub/docs/) which has quickstarts and guides for every language. Items on pubsub are plain bytes, so your function will take the item which was yielde by your function, optionally you can add fields to it (e.g. a timestamp can be handy), encode into bytes, and then publish that on the topic.
 
-If you run your scraper now, you'll see pubsub-related message appearing in the logs. If you go in the cloud console to one of your subscriptions, you'll see that messages are being pushed to the topic:
+If you run your scraper now, you'll see pubsub-related message appearing in the logs. If you go in the cloud console to one of your subscriptions, you'll see with a slight delay that messages are being pushed to the topic:
 
 ![Topic_Messages](docs_images/topic_push.png)
 
@@ -243,7 +238,9 @@ If you go to the corresponding subscription in the cloud console, you'll see the
 
 ![Subscription_messages](docs_images/sub_pull.png)
 
-### Transformation step
+From the cloud console, you can manually push and pull message from topics and subscriptions.
+
+## 2.b Transformation step
 
 #### Pull items in python script ...
 
@@ -271,7 +268,7 @@ If you execute the script, it will print out `Table hotels created`. Go the clou
 
 You can view their schema here, stats about how much data they contain (none at this point of course), preview the content, export the data ... If you click on `Query Table`, the textbox above will fill with a SQL statement to query the table you've selected. If you make mistakes on your schema, or have garbage in there, you can just delete a table and start over.
 
-Now make a function which will take an item and write it to BigQuery. Your pubsub receive function / callback will thus have to write every item it receives to the table.
+Now make a function which will take an item and write it to BigQuery. Look in the BigQuery docs on how to do Streaming data inserts. Your pubsub receive function / callback will thus have to write every item it receives to the table.
 
 Once you start inserting data, go to the BigQuery cloud console and look up your table. In the `Preview` tab, you'll be able to see and verify the data you're inserting. In the `Details` tab you'll see under `Streaming buffer statistics` that new data is being inserted into the table. Data will first be inserted in this buffer, and an estimate is made of the size and rowcount. After a while the data will be under `Table info` with an exact size and row count. For the purpose of this workshop, this difference does not matter.
 
@@ -281,11 +278,13 @@ You can start querying your data now and verifying if all looks good.
 
 Note: you'll likely have inserted data (both hotels or rates) which later might get corrected if you update your crawler. In that case need to deduplicate your rows so you only end up with 1 version of each hotel / rate. The [BigQuery docs](https://cloud.google.com/bigquery/streaming-data-into-bigquery#manually_removing_duplicates) describe how you can do deduplication. While testing and developing, it's also handy to create tables with suffix `_1`, `_2` ... which you can easily throw away after you fill them potentially with garbage. This helps keeping your final table clean.
 
-## Analysis questions - BigQuery
+## 3 Analysis questions
+
+### 3.a BigQuery analysis on scraped data
 
 These are questions about the data you gathered. Each of them asks the question 'per destination', so you can start looking for the solution as soon as you have some data from the easiest destinations. All of these questions can be found by querying the dataset from BigQuery.
 
-## Hotels
+#### Hotels
 
 - How many hotels, and how many rooms do we have in each destination.
 
@@ -358,7 +357,7 @@ SELECT destination, COUNT(DISTINCT hotel_id) AS num_hotels, SUM(room_count) AS n
     - Brussels: 726272 / Auberge des 3 Fontaines -> 1747138 / Villa les bisous = 0.2247488180660683
     - London: 1263969 / The Beaumont -> 2654957 / Luxury Apartments in Westminster = 119.9861090522311
 
-## Rates
+#### Rates
 
 - For these hotels, how many rates are there in the dataset, how many are refundable / nonrefundable and how many include breakfast / no breakfast?
     - Hotel Asterisk 3 star superior
@@ -783,7 +782,7 @@ SELECT destination, COUNT(DISTINCT hotel_id) AS num_hotels, SUM(room_count) AS n
     
     Leisure hotels vs business hotels have different pricing strategies.
 
-## Analysis questions - Pandas
+## 3.b. Analysis on pre-filled dataset
 
 This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
 
@@ -795,7 +794,7 @@ Apart from the date characteristics, these are rates with some fixed dimensions;
 
 You'll also find the table `hackathon_vtk_amsterdam_events`. This contains a set of events happening in Amsterdam between `2019-02-01` and `2019-06-01`, so they could have an impact on the rates being contained in the rates table.
 
-### 2. Analysis with Pandas
+### Analysis with Pandas
 
 The analysis should be performed in a Python Notebook using Pandas.
 

@@ -182,7 +182,7 @@ For different locations, the website will behave a bit different. Amsterdam is t
 #### Add data for Paris
 
 At this point, try looking at the hotels and rates in Paris.
-The rates (and hotels) for Paris are likely not going to work; you'll get a 403 response when scraping. This might or might not be the case as well when you visit the page in your browser(s) (which is also the hint about what is causing this). Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request.
+The rates (and hotels) for Paris are likely not going to work; you'll get a 403 response when scraping. This might or might not be the case as well when you visit the page in your browser(s) (which is also the hint about what is causing this). Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 
 Issue: It's user-agent blocking
 
@@ -190,13 +190,17 @@ Issue: It's user-agent blocking
 
 Add the hotels and rates from London. Something is wrong on these rates, they'll likely not be parsed by your current implementation. Find out why your scraper is not working and fix it. You might have to look for alternatives here :)
 
-TODO: how to suggest they need to be looking at Beautiful soup without making it too obvious?
+As the golden hint: this line will be necessary :)
+
+```python
+soup = BeautifulSoup(response.text, 'html5lib')
+```
 
 Issue: Broken html, use Beautiful Soup
 
 #### Add data for Brussels
 
-Add the hotels from Brussels. You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser. Note that the same protection as in Paris is in place for Brussels as well. If you get a 403 response, it's because that issue; this issue will be a 400 response.
+Add the hotels from Brussels. You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. Note that the same protection as in Paris is in place for Brussels as well. If you get a 403 response, it's because that issue; this issue will be a 400 response.
 
 Issue: requires cookie with base64-encoded path in it
 

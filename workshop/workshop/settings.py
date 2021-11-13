@@ -24,16 +24,16 @@ DUPEFILTER_DEBUG = True
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy
-CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 5
 
 # Configure a delay for requests for the same website
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 0.1
 
 # The download delay setting will honor only one of:
-CONCURRENT_REQUESTS_PER_DOMAIN = 1
-CONCURRENT_REQUESTS_PER_IP = 1
+CONCURRENT_REQUESTS_PER_DOMAIN = 5
+CONCURRENT_REQUESTS_PER_IP = 5
 
 # Disable cookies
 COOKIES_ENABLED = True
@@ -57,6 +57,7 @@ TELNETCONSOLE_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'workshop.middlewares.WorkshopDownloaderMiddleware': 543,
+   'workshop.middlewares.CookiesMiddleware': 500,
    'workshop.middlewares.TooManyRequestsRetryMiddleware': 300,
 }
 
@@ -80,4 +81,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-RETRY_TIMES = 1
+RETRY_TIMES = 5

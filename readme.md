@@ -46,59 +46,68 @@ In the file `workshop/spiders/ota_hotels.py` there is a spider class `OtaHotelsS
 
 ```bash
 cd workshop
-scrapy crawl hotels
+scrapy crawl ota_hotels
 ```
 
 It will output some configuration info, then the list of every url it visits, the items resulting from `parse_function`, periodically some stats about its progress and at the end some stats about all the requests it did:
 
 ```
-2019-11-08 11:51:31 [scrapy.utils.log] INFO: Scrapy 1.7.3 started (bot: workshop)
-2019-11-08 11:51:31 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.7.0, Python 3.7.4 (default, Sep  7 2019, 18:27:02) - [Clang 10.0.1 (clang-1001.0.46.4)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1c  28 May 2019), cryptography 2.7, Platform Darwin-18.7.0-x86_64-i386-64bit
+(workshop-scrapy) mhindery@Mathieus-MBP workshop % scrapy crawl ota_hotels
+2021-11-13 13:49:43 [scrapy.utils.log] INFO: Scrapy 2.5.1 started (bot: workshop)
+2021-11-13 13:49:43 [scrapy.utils.log] INFO: Versions: lxml 4.6.4.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.7.0, Python 3.9.4 (default, Apr 28 2021, 08:56:53) - [Clang 11.0.3 (clang-1103.0.32.62)], pyOpenSSL 21.0.0 (OpenSSL 1.1.1l  24 Aug 2021), cryptography 35.0.0, Platform macOS-10.16-x86_64-i386-64bit
+2021-11-13 13:49:43 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-11-13 13:49:43 [scrapy.crawler] INFO: Overridden settings:
 ...
 ... some config info ...
 ...
-2019-11-08 11:51:31 [scrapy.core.engine] INFO: Spider opened
-2019-11-08 11:51:31 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-11-13 13:49:43 [scrapy.core.engine] INFO: Spider opened
+2021-11-13 13:49:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-11-13 13:49:43 [ota_hotels] INFO: Spider opened: ota_hotels
 ...
-... urls it is visiting ...
+... urls being visited ...
 ...
-2019-11-08 11:51:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.google.com/> (referer: None)
-2019-11-08 11:51:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.google.com/>
+2021-11-13 13:49:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.google.com/>
 ...
 ... items we got from the dummy implementation: ...
 ...
+
 {'Success': True}
-2019-11-08 11:51:32 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-11-13 13:49:43 [scrapy.core.engine] INFO: Closing spider (finished)
 ...
 ... some stats when it finishes ...
 ...
-2019-11-08 11:51:32 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{'downloader/request_bytes': 213,
- 'downloader/request_count': 1,
- 'downloader/request_method_count/GET': 1,
- 'downloader/response_bytes': 6180,
- 'downloader/response_count': 1,
- 'downloader/response_status_count/200': 1,
- 'elapsed_time_seconds': 0.318787,
+2021-11-13 13:49:43 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 590,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 62411,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 0.328673,
  'finish_reason': 'finished',
- 'finish_time': datetime.datetime(2019, 11, 8, 10, 51, 32, 76671),
+ 'finish_time': datetime.datetime(2021, 11, 13, 12, 49, 43, 847121),
+ 'httpcompression/response_bytes': 182558,
+ 'httpcompression/response_count': 2,
  'item_scraped_count': 1,
- 'log_count/DEBUG': 2,
- 'log_count/INFO': 10,
- 'memusage/max': 53223424,
- 'memusage/startup': 53219328,
- 'response_received_count': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 9,
+ 'memusage/max': 53493760,
+ 'memusage/startup': 53493760,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
  'scheduler/dequeued': 1,
  'scheduler/dequeued/memory': 1,
  'scheduler/enqueued': 1,
  'scheduler/enqueued/memory': 1,
- 'start_time': datetime.datetime(2019, 11, 8, 10, 51, 31, 757884)}
-2019-11-08 11:51:32 [scrapy.core.engine] INFO: Spider closed (finished)
+ 'start_time': datetime.datetime(2021, 11, 13, 12, 49, 43, 518448)}
+2021-11-13 13:49:43 [scrapy.core.engine] INFO: Spider closed (finished)
 ```
 
 There are 2 methods you need to implement: `start_requests` and `parse_function`. The `start_requests` function is the entry point of your scraper: here you generate a set of urls to start visiting, and for each url, the callback function that will be called with the result. In that callback function (in this case `parse_function`, you can have multiple ones and name them however you like), you extract the information from the response and yield it as a dictionary.
 
-Look in the [Scrapy tutorial part about data extracting](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) for how to get the elements you need. Start with a basic implementation in your parsing method and make sure you can reach all the hotels before getting lost in extracting the info from each hotel; due to some anti-bot measures, you won't be able to get everything at first. **Start with the hotels from Amsterdam.** That city is the easiest and has no anti-craw measures. Once Amsterdam works, see a later part to add data for other cities.
+Look in the [Scrapy tutorial part about data extracting](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) for how to get the elements you need. Start with a basic implementation in your parsing method and make sure you can reach all the hotels before getting lost in trying to extract all info from each hotel; due to some anti-bot measures, you won't be able to get everything at first. **Start with the hotels from Amsterdam.** That city is the easiest and has no anti-crawl measures. Once Amsterdam works, see a later part to add data for other cities.
 
 To investigate how to extract the necessary elements from the website responses, start by yielding (one or) some hardcoded urls in `start_requests`. The Scrapy docs then mention the [Scrapy shell](https://docs.scrapy.org/en/latest/topics/shell.html#topics-shell) which you can use to interactively inspect a response. You can also use [Ipdb](https://pypi.org/project/ipdb/), which opens an interactive ipython shell where you want to debug something; add this line as the first one in your function.
 
@@ -151,14 +160,27 @@ Note that you likely won't be able to access all rates with your first attempt. 
 
 For different locations, the website will behave a bit different. Amsterdam is the easiest one. When you get that going, you can start looking into adding data from other locations. The recommended ordering to start crawling cities: Amsterdam, Brussels, Paris, London, Berlin. Some anti-bot measures from earlier cities are also present in later cities. Both the inventory of the hotels in a destination and the rates of a destination contain similar anti-crawl measures.
 
-TODO: describe the different measures per city
+- Hotels detail page:
+  - RoomCount is after the title between square brackets
+  - Stars is a separate line
 
 #### Add data for Brussels
+
+- Rate limit
+- Hotels detail page:
+  - RoomCount is a separate line
+  - Stars are asterisks behind the hotel name
 
 #### Add data for Paris
 
 At this point, try looking at the hotels and rates in Paris.
 The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
+
+- Rate limit
+- User agent check
+- Hotels detail page:
+  - RoomCount is a separate line
+  - Stars are asterisks behind the hotel name
 
 #### Add data for London
 
@@ -170,13 +192,22 @@ As the golden hint: this line will be necessary :)
 soup = BeautifulSoup(response.text, 'html5lib')
 ```
 
-Issue: Broken html, use Beautiful Soup
+- Rate limit
+- User agent check
+- Hotels detail page:
+  - RoomCount is a separate line
+  - Stars is a separate line
 
 #### Add data for Berlin
 
-You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. If you get a 403 response, it's because that issue; this issue will be a 400 response.
+You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. If you get a 403 response, it's because of something different; the issue you're looking for will resut in a 400 response.
 
-Issue: requires cookie with base64-encoded path in it
+- Rate limit
+- User agent check
+- Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js
+- Hotels detail page:
+  - RoomCount is a separate line
+  - Stars is a separate line
 
 ### Analysis on the crawled data
 
@@ -185,18 +216,37 @@ These are questions about the data you gathered from the website. Each of them a
 #### Hotels
 
 - How many hotels, and how many rooms do we have in each city?
+- For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric
 
 ```sql
 SELECT destination_id, COUNT(DISTINCT their_hotel_id) AS num_hotels, SUM(room_count) AS num_rooms FROM hotels GROUP BY destination_id;
 ```
 
-```json
-[
-    {"todo": "results"}
-]
+```
+Solution example: See workshop/analyze_hotels.py
 ```
 
-- For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric
+```
+amsterdam hotels: 316
+amsterdam num_rooms: 42600
+amsterdam 0.33041988599937516 ('Courtyard by Marriott Amsterdam Airport', 'Gr8 Hotel Amsterdam Riverside')
+
+brussels hotels: 178
+brussels num_rooms: 20009
+brussels 0.3775885735765345 ('Hotel Restaurant Van Der Valk Nivelles-Sud', 'Hotel The New Fox')
+
+paris hotels: 752
+paris num_rooms: 80075
+paris 0.6578825380797484 ('Hyatt Regency Chantilly', 'Auberge du Manet')
+
+london hotels: 515
+london num_rooms: 84128
+london 0.8368014030952321 ('Cliveden House ', 'Premier Inn London Dagenham ')
+
+berlin hotels: 338
+berlin num_rooms: 51676
+berlin 7.577476573847079 ('Comfort Hotel Lichtenberg ', 'B&B Hotel Verona Sud ')
+```
 
 #### Rates
 

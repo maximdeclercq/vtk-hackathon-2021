@@ -5,24 +5,19 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-
-
-from scrapy.downloadermiddlewares.retry import RetryMiddleware
-from scrapy.utils.response import response_status_message
-from scrapy.downloadermiddlewares import DownloaderMiddleware
-
+import base64
+import random
 import time
 
-import base64
-
-import random
+from scrapy import signals
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
+from scrapy.utils.response import response_status_message
 
 server_location = 'http://35.233.25.116'
 
 
 
-class UserAgentDownloaderMiddleware(DownloaderMiddleware):
+class UserAgentDownloaderMiddleware:
     user_agent_choices = [
         "Edg/93", "Edg/94", "Edg/95", "Edg/96",
         "Chrome/93", "Chrome/94", "Chrome/95", "Chrome/96",

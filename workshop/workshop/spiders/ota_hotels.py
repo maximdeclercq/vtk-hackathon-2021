@@ -1,6 +1,5 @@
 import scrapy
 
-
 server_location = 'http://35.233.25.116'
 
 

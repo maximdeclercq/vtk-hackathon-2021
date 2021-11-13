@@ -1,6 +1,5 @@
 Scrapy
 arrow
-google-cloud-pubsub==0.39.1
 ipdb
 beautifulsoup4
 html5lib

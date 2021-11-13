@@ -7,16 +7,16 @@
 
 import json
 
-from workshop.pubsub import send_hotels_message, send_rates_message
+# from workshop.pubsub import send_hotels_message, send_rates_message
 
 
 class WorkshopPipeline(object):
     """ Write each item to pubsub here """
 
     def process_item(self, item, spider):
-        if spider.name == 'ota_rates':
-            send_rates_message(item)
-        elif spider.name == 'ota_hotels':
-            send_hotels_message(item)
+        # if spider.name == 'ota_rates':
+        #     send_rates_message(item)
+        # elif spider.name == 'ota_hotels':
+        #     send_hotels_message(item)
 
         return item

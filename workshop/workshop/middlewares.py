@@ -7,33 +7,24 @@
 
 from scrapy import signals
 
+
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
+from scrapy.utils.response import response_status_message
+
+import time
+
+import base64
+
 import random
 
+server_location = 'http://35.233.25.116'
+
 user_agent_choices = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    'Mozilla/5.0 (Linux; Android 8.0.0;) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.62 Mobile Safari/537.36',
-    'Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/78.0.3904.67 Mobile/15E148 Safari/605.1',
-    # 'Mozilla/6.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
-    # 'Mozilla/6.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-    # 'Mozilla/6.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-    # 'Mozilla/6.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/6.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/6.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/6.0 (Linux; Android 8.0.0;) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.62 Mobile Safari/537.36',
-    # 'Mozilla/6.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/78.0.3904.67 Mobile/15E148 Safari/605.1',
-    # 'Mozilla/7.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
-    # 'Mozilla/7.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-    # 'Mozilla/7.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-    # 'Mozilla/7.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/7.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/7.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36',
-    # 'Mozilla/7.0 (Linux; Android 8.0.0;) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.62 Mobile Safari/537.36',
-    # 'Mozilla/7.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/78.0.3904.67 Mobile/15E148 Safari/605.1',
+	"Edg/93", "Edg/94", "Edg/95", "Edg/96",
+	"Chrome/93", "Chrome/94", "Chrome/95", "Chrome/96",
+	"Firefox/93", "Firefox/94", "Firefox/95", "Firefox/96",
+	"Safari/603", "Safari/604", "Safari/605", "Safari/606",
+	"Trident/7",
 ]
 
 
@@ -114,6 +105,13 @@ class WorkshopDownloaderMiddleware(object):
         # request.headers['User-Agent'] = 'Demo user agent'
         request.headers['User-Agent'] = random.choice(user_agent_choices)
 
+        # if '/hotel/Berlin' in request.url:
+        #     path = request.url.removeprefix(server_location)
+        #     encoded_path = base64.b64encode(path.encode()).decode('utf-8')
+        #     import ipdb; ipdb.set_trace()
+        #     print(path, encoded_path)
+        #     # request.headers
+
         return None
 
     def process_response(self, request, response, spider):
@@ -139,11 +137,6 @@ class WorkshopDownloaderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-from scrapy.downloadermiddlewares.retry import RetryMiddleware
-from scrapy.utils.response import response_status_message
-
-import time
-
 class TooManyRequestsRetryMiddleware(RetryMiddleware):
 
     def __init__(self, crawler):
@@ -166,4 +159,13 @@ class TooManyRequestsRetryMiddleware(RetryMiddleware):
         elif response.status in self.retry_http_codes:
             reason = response_status_message(response.status)
             return self._retry(request, reason, spider) or response
-        return response 
+        return response
+
+
+class CookiesMiddleware:
+    def process_request(self, request, spider):
+        if '/hotel/Berlin' in request.url:
+            path = request.url.removeprefix(server_location)
+            encoded_path = base64.b64encode(path.encode()).decode('utf-8')
+            request.cookies['controlid'] = encoded_path
+        return None

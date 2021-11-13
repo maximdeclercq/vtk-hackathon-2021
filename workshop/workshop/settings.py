@@ -56,9 +56,9 @@ TELNETCONSOLE_ENABLED = False
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'workshop.middlewares.WorkshopDownloaderMiddleware': 543,
-   'workshop.middlewares.CookiesMiddleware': 500,
-   'workshop.middlewares.TooManyRequestsRetryMiddleware': 300,
+   'workshop.middlewares.UserAgentDownloaderMiddleware': 543,
+   'workshop.middlewares.ControlIDCookiesMiddleware': 500,
+   'workshop.middlewares.RateLimitRetryMiddleware': 300,
 }
 
 # Enable or disable extensions
@@ -70,7 +70,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'workshop.pipelines.WorkshopPipeline': 300,
+   # 'workshop.pipelines.WorkshopPipeline': 300,
 }
 
 # Enable and configure HTTP caching (disabled by default)
@@ -81,4 +81,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-RETRY_TIMES = 5
+RETRY_TIMES = 1

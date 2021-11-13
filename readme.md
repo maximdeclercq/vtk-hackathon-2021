@@ -140,9 +140,17 @@ Note that successive runs will append to this file and not overwrite is, so it's
 
 #### Scale it up
 
-Once you can succesfully crawl hotels and their info, you'll want to speed it up, and do some more requests concurrenctly. Otherwise you won't be able to get all the data in time. Have a look at `workshop/workshop/settings.py` to tweak some of the settings to increase the throughput.
+Once you can succesfully crawl hotels and their info, you'll want to speed it up, and do some more requests concurrenctly. Otherwise you won't be able to get all the data in time. Have a look to tweak some of the settings to increase the throughput.
 
 Once you've increased the throughput, do some different runs and compare the output results. Depending on which destinations you are crawling, you might see different results (the ordering of items is irrelevent, compare the content, e.g. number of hotels you get each time ...). The differences will occur in destinations different from Amsterdam. If you look at the logs from your run, and the output statistics at the end, you might see what is causing this. Have a look around (in the Scrapy docs, Google around) what you are experiencing here and how you can handle this issue with Scrapy... As a hint, some things will only occur if you have increased the throughput sufficiently.
+
+```
+In `workshop/workshop/settings.py`, change CONCURRENT_REQUESTS, CONCURRENT_REQUESTS_PER_DOMAIN, CONCURRENT_REQUESTS_PER_IP
+```
+
+```
+Some should see rate limiting in action, so 429 responses occuring which isn't handled by default. Add middleware to handle retries (RateLimitRetryMiddleware) and bump the RETRY_TIMES setting
+```
 
 ### Get the rates of all hotels on the site for the coming year.
 
@@ -166,7 +174,7 @@ For different locations, the website will behave a bit different. Amsterdam is t
 
 #### Add data for Brussels
 
-- Rate limit
+- Rate limit (see `RateLimitRetryMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars are asterisks behind the hotel name
@@ -176,8 +184,8 @@ For different locations, the website will behave a bit different. Amsterdam is t
 At this point, try looking at the hotels and rates in Paris.
 The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 
-- Rate limit
-- User agent check
+- Rate limit (see `RateLimitRetryMiddleware`)
+- User agent check (see `UserAgentDownloaderMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars are asterisks behind the hotel name
@@ -186,14 +194,14 @@ The rates (and hotels) for Paris are likely not going to work; you'll get an htt
 
 Add the hotels and rates from London. Something is wrong on these rates, they'll likely not be parsed by your current implementation. Find out why your scraper is not working and fix it. You might have to look for alternatives here :)
 
-As the golden hint: this line will be necessary :)
+As the golden hint: this line might be necessary for the rates :)
 
 ```python
 soup = BeautifulSoup(response.text, 'html5lib')
 ```
 
-- Rate limit
-- User agent check
+- Rate limit (see `RateLimitRetryMiddleware`)
+- User agent check (see `UserAgentDownloaderMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
@@ -202,9 +210,9 @@ soup = BeautifulSoup(response.text, 'html5lib')
 
 You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. If you get a 403 response, it's because of something different; the issue you're looking for will resut in a 400 response.
 
-- Rate limit
-- User agent check
-- Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js
+- Rate limit (see `RateLimitRetryMiddleware`)
+- User agent check (see `UserAgentDownloaderMiddleware`)
+- Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js. (see `ControlIDCookiesMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
@@ -223,7 +231,7 @@ SELECT destination_id, COUNT(DISTINCT their_hotel_id) AS num_hotels, SUM(room_co
 ```
 
 ```
-Solution example: See workshop/analyze_hotels.py
+Simple solution example: See workshop/analyze_hotels.py
 ```
 
 ```

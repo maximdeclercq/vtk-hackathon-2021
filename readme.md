@@ -168,27 +168,37 @@ Note that you likely won't be able to access all rates with your first attempt. 
 
 For different locations, the website will behave a bit different. Amsterdam is the easiest one. When you get that going, you can start looking into adding data from other locations. The recommended ordering to start crawling cities: Amsterdam, Brussels, Paris, London, Berlin. Some anti-bot measures from earlier cities are also present in later cities. Both the inventory of the hotels in a destination and the rates of a destination contain similar anti-crawl measures.
 
+```
 - Hotels detail page:
   - RoomCount is after the title between square brackets
   - Stars is a separate line
+```
 
 #### Add data for Brussels
 
+```
 - Rate limit (see `RateLimitRetryMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars are asterisks behind the hotel name
+```
+
+See comparison on the layout of the hotel pages in Amsterdam versus Brussels:
+
+![Hotel detail page](docs_images/hotel_page.png)
 
 #### Add data for Paris
 
 At this point, try looking at the hotels and rates in Paris.
 The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 
+```
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars are asterisks behind the hotel name
+```
 
 #### Add data for London
 
@@ -200,22 +210,26 @@ As the golden hint: this line might be necessary for the rates :)
 soup = BeautifulSoup(response.text, 'html5lib')
 ```
 
+```
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
+```
 
 #### Add data for Berlin
 
 You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. If you get a 403 response, it's because of something different; the issue you're looking for will resut in a 400 response.
 
+```
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js. (see `ControlIDCookiesMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
+```
 
 ### Analysis on the crawled data
 
@@ -258,20 +272,16 @@ berlin 7.577476573847079 ('Comfort Hotel Lichtenberg ', 'B&B Hotel Verona Sud ')
 
 #### Rates
 
-- For these hotels, how many rates are there on the website, how many of them are refundable and non-refundable, how many include breakfast or not?
-    - TODO: Select a few hotels in each city and add results
+TODO: add results / implementations here
 
-- Give the percentage of hotels per destination which were sold out on 25-12-2021
-    - TODO: add results
+- For these hotels, how many rates are there on the website, how many of them are refundable and non-refundable, how many include breakfast or not?
+
+- Give the percentage of hotels per destination which are sold out on 25-12-2021
 
 - What's the average price per person, destination, and number of stars. Do this in two steps:
   - Calculate for every rate the per-person-per-night cost, and take for each hotel the cheapest of the available options per  arrival date. For example, if you arrive at a certain date, there could be a room for 2 persons for a stay of 2 nights available, and there could be a room for 1 person for 2 nights available. In order to allow some form of comparions, equalize each rate to this per-person-per-night cost. Note that this calculation, and looking at the cheapest option, assumes that you would be able to pick and match rates; take a night from the first option from the example, and then 1 night from the second option. In reality this is not the case, but otherwise a comparison would be infeasible here.
 
-    TODO: add results
-
 - For stays of 1 night, calculate the average price for a room for each hotel if you arrive on a weekday versus if you arrive on a weekend day. How many hotels are more expensive in the weekend than during the week? Why is that do you think?
-
-    TODO: add result
 
     Explanation as to why this is? Not something which is necessarily present in the data, just think about it.
 
@@ -281,11 +291,7 @@ berlin 7.577476573847079 ('Comfort Hotel Lichtenberg ', 'B&B Hotel Verona Sud ')
 
 This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
 
-### Dataset info
-
-TODO: nelis
-
-### Analysis with Pandas
+### Dataset Analysis with Pandas
 
 The analysis should be performed in a Python Notebook using Pandas.
 

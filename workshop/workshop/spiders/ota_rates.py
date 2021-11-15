@@ -48,7 +48,7 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
         # Load all scraped hotels
         all_hotels = []
-        for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin']:
+        for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin'][:1]:
             input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/{city}.json'
 
             with open(input_file) as f:
@@ -56,11 +56,11 @@ class DummyOtaRatesSpider(scrapy.Spider):
             all_hotels.extend(hotels)
 
         # Loop over hotels
-        for hotel in all_hotels[:1]:
+        for hotel in all_hotels:
             # Loop over start dates
             start_date = arrow.get('2021-11-15')
             end_date = arrow.get('2022-04-01')
-            for from_date in list(arrow.Arrow.range('day', start_date, end_date))[:2]:
+            for from_date in list(arrow.Arrow.range('day', start_date, end_date)):
                 # Request LOS 1 and 2
                 for los in [1, 2]:
                     yield scrapy.Request(
@@ -99,7 +99,6 @@ class DummyOtaRatesSpider(scrapy.Spider):
                 number_guests = rate_properties[4].text.split(": ")[1]
 
         else:
-            import ipdb; ipdb.set_trace()
             # hotel info
             hotel_info = response.css('div.hotel-card-body')[0]
             hotel_id = hotel_info.css('p::text').get()

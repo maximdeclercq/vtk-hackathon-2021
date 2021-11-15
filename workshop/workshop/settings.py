@@ -21,19 +21,19 @@ DUPEFILTER_DEBUG = True
 #USER_AGENT = 'workshop (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy
-CONCURRENT_REQUESTS = 10
+CONCURRENT_REQUESTS = 20
 
 # Configure a delay for requests for the same website
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.1
+DOWNLOAD_DELAY = 0.01
 
 # The download delay setting will honor only one of:
-CONCURRENT_REQUESTS_PER_DOMAIN = 10
-CONCURRENT_REQUESTS_PER_IP = 10
+CONCURRENT_REQUESTS_PER_DOMAIN = 20
+CONCURRENT_REQUESTS_PER_IP = 20
 
 # Disable cookies
 COOKIES_ENABLED = True
@@ -81,4 +81,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-RETRY_TIMES = 1
+RETRY_TIMES = 2

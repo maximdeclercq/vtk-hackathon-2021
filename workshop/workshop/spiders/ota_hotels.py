@@ -2,6 +2,8 @@ import scrapy
 
 server_location = 'http://35.233.25.116'
 
+server_location = 'http://localhost:8282'
+
 
 class DummyOtaHotelsSpider(scrapy.Spider):
     """ scrapy crawl ota_hotels -o hotels.json """
@@ -20,11 +22,11 @@ class DummyOtaHotelsSpider(scrapy.Spider):
 
     def start_requests(self):
         urls = [
-            f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
+            # f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
             # f'{server_location}/sitemap/hotels/Paris/?page=1',
             # f'{server_location}/sitemap/hotels/London/?page=1',
             # f'{server_location}/sitemap/hotels/Brussels/?page=1',
-            # f'{server_location}/sitemap/hotels/Berlin/?page=1',
+            f'{server_location}/sitemap/hotels/Berlin/?page=1',
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse_list)

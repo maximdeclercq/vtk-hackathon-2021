@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 
 server_location = 'http://35.233.25.116'
 
+server_location = 'http://localhost:8282'
+
 
 class DummyOtaRatesSpider(scrapy.Spider):
     """ scrapy crawl ota_rates -o rates.json """
@@ -44,11 +46,12 @@ class DummyOtaRatesSpider(scrapy.Spider):
     ]
 
     def start_requests(self):
-        url_template = server_location + '/rates/{destination_id}/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons=2'
+        url_template = server_location + '/rates/{destination_id}/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons={num_persons}'
 
         # Load all scraped hotels
         all_hotels = []
-        for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin'][:1]:
+        for city in ['amsterdam', ]:
+        # for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin'][:1]:
             input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/{city}.json'
 
             with open(input_file) as f:
@@ -63,10 +66,12 @@ class DummyOtaRatesSpider(scrapy.Spider):
             for from_date in list(arrow.Arrow.range('day', start_date, end_date)):
                 # Request LOS 1 and 2
                 for los in [1, 2]:
-                    yield scrapy.Request(
-                        url=url_template.format(destination_id=hotel["destination"], hotel_id=hotel["hotel_id"], from_date=from_date.format('YYYY-MM-DD'), to_date=from_date.shift(days=los).format('YYYY-MM-DD')),
-                        callback=self.parse
-                    )
+                    # Persons
+                    for num_persons in [1, 2]:
+                        yield scrapy.Request(
+                            url=url_template.format(destination_id=hotel["destination"], hotel_id=hotel["hotel_id"], from_date=from_date.format('YYYY-MM-DD'), to_date=from_date.shift(days=los).format('YYYY-MM-DD'), num_persons=num_persons),
+                            callback=self.parse
+                        )
 
     def parse(self, response):
         # params
@@ -107,7 +112,7 @@ class DummyOtaRatesSpider(scrapy.Spider):
             rate_properties = response.css('div.rate-card-body')[0].css('.list-group-item::text').getall()
             room_name = rate_properties[0].split(": ")[1]
 
-            if 'Sold OUT' in room_name:
+            if 'Sold out' in room_name.lower():
                 return
             else:
                 price_info = rate_properties[1].split(": ")[1]

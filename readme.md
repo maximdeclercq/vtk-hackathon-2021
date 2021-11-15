@@ -258,25 +258,26 @@ Simple solution example: See workshop/analyze_hotels.py
 ```
 
 ```
-amsterdam hotels: 316
-amsterdam num_rooms: 42600
-amsterdam 0.33041988599937516 ('Courtyard by Marriott Amsterdam Airport', 'Gr8 Hotel Amsterdam Riverside')
+amsterdam hotels: 161
+amsterdam num_rooms: 26099
+amsterdam 0.25070862635888674 ('a&o Amsterdam Zuidoost', 'Novotel Amsterdam Schiphol Airport')
 
-brussels hotels: 178
-brussels num_rooms: 20009
-brussels 0.3775885735765345 ('Hotel Restaurant Van Der Valk Nivelles-Sud', 'Hotel The New Fox')
+brussels hotels: 105
+brussels num_rooms: 15578
+brussels 0.15947115331335054 ('Sheraton Brussels Airport Hotel', 'Pullman Brussels Centre Midi')
 
-paris hotels: 752
-paris num_rooms: 80075
-paris 0.6578825380797484 ('Hyatt Regency Chantilly', 'Auberge du Manet')
+paris hotels: 185
+paris num_rooms: 27619
+paris 0.39220442864659255 ('Sheraton Paris Roissy Airport', 'Novotel Paris Pont De Sevres')
 
-london hotels: 515
-london num_rooms: 84128
-london 0.8368014030952321 ('Cliveden House ', 'Premier Inn London Dagenham ')
+london hotels: 161
+london num_rooms: 34507
+london 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
 
-berlin hotels: 338
-berlin num_rooms: 51676
-berlin 7.577476573847079 ('Comfort Hotel Lichtenberg ', 'B&B Hotel Verona Sud ')
+berlin hotels: 146
+berlin num_rooms: 28801
+berlin 0.20745792928688012 ('Estrel Berlin ', 'Holiday Inn Berlin City-West  an IHG Hotel ')
+
 ```
 
 #### Rates

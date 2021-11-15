@@ -2,7 +2,7 @@ import json
 import math
 
 for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin']:
-    input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/{city}.json'
+    input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/hotels_{city}.json'
 
     with open(input_file) as f:
         hotels = json.load(f)

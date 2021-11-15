@@ -15,6 +15,8 @@ from scrapy.utils.response import response_status_message
 
 server_location = 'http://35.233.25.116'
 
+server_location = 'http://localhost:8282'
+
 
 
 class UserAgentDownloaderMiddleware:
@@ -54,7 +56,7 @@ class RateLimitRetryMiddleware(RetryMiddleware):
 
 class ControlIDCookiesMiddleware:
     def process_request(self, request, spider):
-        if '/hotel/Berlin' in request.url:
+        if 'hotel/Berlin' in request.url:
             path = request.url.removeprefix(server_location)
             encoded_path = base64.b64encode(path.encode()).decode('utf-8')
             request.cookies['controlid'] = encoded_path

@@ -4,23 +4,42 @@
 
 # 1. Introduction
 
-The workshop contains of two parts. The first aspect is an introduction to website crawling. The second part is a dataset analysis part on a pre-existing dataset.
+The workshop contains of two parts. The first aspect is a data science task on a pre-existing dataset. The second task is an introduction to website crawling. 
 
-We recommend with some people starting on the scraping part and some people starting on the data science task in parallel.
+We recommend with some people starting on the data science task and some people starting on the scraping part in parallel.
 
 #### Website crawing 101
 You're going to scrape the information of a website with rates of hotel rooms. Your server is located on [http://35.233.25.116/](http://35.233.25.116/) and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...). Our website contains a selected limited dataset of real rates we have taken: they come from [Booking.com](https://www.booking.com) and span about a year in the future. The data can be divided into a subset of hotel room rates from a few cities, extracted earlier this month. You'r going to extract the data from this website yourself now.
 
  Accross the site, there are some realistic anti-bot measure being put in place which you'll have to counter. The anti-bot measures are different per city (so hotels in e.g. Amsterdam are behaving differently from hotels in London), so you should start with the easiest city and work your way up. You'll be asked questions about the data for every city, so once you have data for one city you can start answering questions about that already. Later you can add the data about the new cities after you have extracted data from a different city.
 
- #### Data science task
- TODO Nelis write some introduction
-
 If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out. If you are stuck anywhere along one of the tasks for a while, call us to help you.
 
 # 2. Tasks to do
 
-## Website scraping - data extraction
+## Task 1: Analysis on pre-filled dataset
+
+This analysis on the pre-filled dataset can be done separately from the website scraping.
+
+The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing). 
+The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a dataframe. 
+For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
+
+### Solutions
+[Solution notebook Nelis](https://colab.research.google.com/drive/1sxolzzHF4YzvrlyYft-SM1jO6gxnQbMn?usp=sharing)
+#### Exceptional deals
+Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and have a figure similar to the one below. 
+![task1](docs_images/solutions_ds/task_1.png)
+
+#### Patterns per destination
+* For the destination with most leisure-like behavior, the students should find one of the following destinations:
+![leisure](docs_images/solutions_ds/task_2_leisure.png)
+* For the destination with most business-like behavior, the students should find one of the following destinations:
+![business](docs_images/solutions_ds/task_2_business.png)
+* They should also plot the 2 determined business and leisure destinations in a figure as this: 
+![business](docs_images/solutions_ds/task_2_day_of_week.png)
+
+## Task 2: Website scraping - data extraction
 
 This part contains the steps to implement the website crawler. which will visit all pages of the website and extract some raw data from it. We'll implement it in Python using the framework [Scrapy](https://scrapy.org/). This is the most well-known and widely used scraping framework, which we ourselves run as well on a very large scale.
 
@@ -297,14 +316,5 @@ TODO: add results / implementations here
 
     Leisure hotels vs business hotels have different pricing strategies.
 
-## 3.b. Analysis on pre-filled dataset
 
-TODO Nelis
 
-This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
-
-### Dataset Analysis with Pandas
-
-The analysis should be performed in a Python Notebook using Pandas.
-
-Go to the [Google Colab](https://colab.research.google.com/) and Upload `data/solution.ipynb` in there to fire up a notebook. Alternatively, you can run this notebook locally if you happen to have the necessary software installed. Follow the instructions in the notebook from there.

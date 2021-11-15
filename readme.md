@@ -14,7 +14,7 @@ You're going to scrape the information of a website with rates of hotel rooms. Y
  Accross the site, there are some realistic anti-bot measure being put in place which you'll have to counter. The anti-bot measures are different per city (so hotels in e.g. Amsterdam are behaving differently from hotels in London), so you should start with the easiest city and work your way up. You'll be asked questions about the data for every city, so once you have data for one city you can start answering questions about that already. Later you can add the data about the new cities after you have extracted data from a different city.
 
  #### Data science task
- TODO Nelis write some introduction
+ For the data science task you will work with an extract of our rates data to perform an outlier and travel destination analysis.               
 
 If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out. If you are stuck anywhere along one of the tasks for a while, call us to help you.
 
@@ -298,12 +298,11 @@ TODO: add results / implementations here
 
 ## 3.b. Analysis on pre-filled dataset
 
-TODO Nelis
+This analysis on the pre-filled dataset can be done separately from all the rest.
 
-This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
+The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing). 
+The notebook contains a description of the data and the tasks that should be implemented. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a Dataframe. 
+For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages. 
 
-### Dataset Analysis with Pandas
 
-The analysis should be performed in a Python Notebook using Pandas.
 
-Go to the [Google Colab](https://colab.research.google.com/) and Upload `data/solution.ipynb` in there to fire up a notebook. Alternatively, you can run this notebook locally if you happen to have the necessary software installed. Follow the instructions in the notebook from there.

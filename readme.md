@@ -298,6 +298,8 @@ TODO: add results / implementations here
 
 ## 3.b. Analysis on pre-filled dataset
 
+TODO Nelis
+
 This part of the analysis can be done separately from all the rest. It works on a dataset we have already loaded into BigQuery for you. The analysis itself should be done using the [Pandas](https://pandas.pydata.org/) library, which is one of the most well-known data analysis packages in use. You can run a notebook locally or work on [Google Colab](https://colab.research.google.com/) which offers hosted notebooks.
 
 ### Dataset Analysis with Pandas

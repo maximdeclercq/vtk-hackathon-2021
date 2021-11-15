@@ -1,12 +1,17 @@
 import json
 import math
+from collections import defaultdict
 
-for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin']:
-    input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/hotels_{city}.json'
+input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/hotels.json'
 
-    with open(input_file) as f:
-        hotels = json.load(f)
+with open(input_file) as f:
+    hotels = json.load(f)
 
+per_destination = defaultdict(list)
+for hotel in hotels:
+    per_destination[hotel['destination']].append(hotel)
+
+for city, hotels in per_destination.items():
     # num hotels and num rooms
     print(city, f'hotels: {len(hotels)}')
     print(city, f"num_rooms: {sum([h['num_rooms'] for h in hotels if h['num_rooms']])}")

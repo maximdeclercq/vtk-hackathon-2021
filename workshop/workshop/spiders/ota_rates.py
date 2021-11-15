@@ -46,17 +46,13 @@ class DummyOtaRatesSpider(scrapy.Spider):
     ]
 
     def start_requests(self):
-        url_template = server_location + '/rates/{destination_id}/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons={num_persons}'
+        url_template = server_location + '/rates/{destination_id}/{hotel_id}/?&page=1&destination={destination_id}&arrivalDate={from_date}&departureDate={to_date}&numPersons={num_persons}'
 
         # Load all scraped hotels
-        all_hotels = []
-        for city in ['amsterdam', ]:
-        # for city in ['amsterdam', 'brussels', 'paris', 'london', 'berlin'][:1]:
-            input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/{city}.json'
+        input_file = f'/Users/mhindery/repos/otainsight/hackathon-scrapy/workshop/hotels.json'
 
-            with open(input_file) as f:
-                hotels = json.load(f)
-            all_hotels.extend(hotels)
+        with open(input_file) as f:
+            all_hotels = json.load(f)
 
         # Loop over hotels
         for hotel in all_hotels:
@@ -75,7 +71,7 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
     def parse(self, response):
         # params
-        prefix_length = len('{server_location}/rates/')
+        prefix_length = len(f'{server_location}/rates/')
         destination = response.url[prefix_length:].split('/')[0]
 
         param_info = response.css('.search-params').css('div::text').getall()
@@ -133,4 +129,5 @@ class DummyOtaRatesSpider(scrapy.Spider):
             'breakfast_included': breakfast_included,
             'refundable': refundable,
             'number_guests': number_guests,
+            'destination': destination,
         }

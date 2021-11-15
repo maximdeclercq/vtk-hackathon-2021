@@ -4,7 +4,7 @@
 
 # 1. Introduction
 
-The workshop contains of two parts. The first aspect is a data science task on a pre-existing dataset. The second task is an introduction to website crawling. 
+The workshop contains of two parts. The first aspect is a data science task on a pre-existing dataset. The second task is an introduction to website crawling.
 
 We recommend with some people starting on the data science task and some people starting on the scraping part in parallel.
 
@@ -21,14 +21,14 @@ If you have any questions about what to do, need help, or have any other questio
 
 This analysis on the pre-filled dataset can be done separately from the website scraping.
 
-The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing). 
-The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a dataframe. 
+The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing).
+The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a dataframe.
 For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
 
 ### Solutions
 [Solution notebook Nelis](https://colab.research.google.com/drive/1sxolzzHF4YzvrlyYft-SM1jO6gxnQbMn?usp=sharing)
 #### Exceptional deals
-Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and have a figure similar to the one below. 
+Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and have a figure similar to the one below.
 ![task1](docs_images/solutions_ds/task_1.png)
 
 #### Patterns per destination
@@ -36,7 +36,7 @@ Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and
 ![leisure](docs_images/solutions_ds/task_2_leisure.png)
 * For the destination with most business-like behavior, the students should find one of the following destinations:
 ![business](docs_images/solutions_ds/task_2_business.png)
-* They should also plot the 2 determined business and leisure destinations in a figure as this: 
+* They should also plot the 2 determined business and leisure destinations in a figure as this:
 ![business](docs_images/solutions_ds/task_2_day_of_week.png)
 
 ## Task 2: Website scraping - data extraction
@@ -277,26 +277,25 @@ Simple solution example: See workshop/analyze_hotels.py
 ```
 
 ```
-amsterdam hotels: 161
-amsterdam num_rooms: 26099
-amsterdam 0.25070862635888674 ('a&o Amsterdam Zuidoost', 'Novotel Amsterdam Schiphol Airport')
+Amsterdam hotels: 122
+Amsterdam num_rooms: 22635
+Amsterdam 0.25070862635888674 ('Novotel Amsterdam Schiphol Airport', 'a&o Amsterdam Zuidoost')
 
-brussels hotels: 105
-brussels num_rooms: 15578
-brussels 0.15947115331335054 ('Sheraton Brussels Airport Hotel', 'Pullman Brussels Centre Midi')
+Brussels hotels: 85
+Brussels num_rooms: 13812
+Brussels 0.15742175107338308 ('Sheraton Brussels Airport Hotel', 'Hotel Park Inn by Radisson Brussels Midi')
 
-paris hotels: 185
-paris num_rooms: 27619
-paris 0.39220442864659255 ('Sheraton Paris Roissy Airport', 'Novotel Paris Pont De Sevres')
+London hotels: 114
+London num_rooms: 24968
+London 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
 
-london hotels: 161
-london num_rooms: 34507
-london 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
+Paris hotels: 114
+Paris num_rooms: 19658
+Paris 0.39220442864659255 ('Sheraton Paris Roissy Airport', 'Novotel Paris Pont De Sevres')
 
-berlin hotels: 146
-berlin num_rooms: 28801
-berlin 0.20745792928688012 ('Estrel Berlin ', 'Holiday Inn Berlin City-West  an IHG Hotel ')
-
+Berlin hotels: 98
+Berlin num_rooms: 22750
+Berlin 0.1641760842784347 ("Ku'Damm 101 Hotel ", "Vienna House Andel's Berlin ")
 ```
 
 #### Rates

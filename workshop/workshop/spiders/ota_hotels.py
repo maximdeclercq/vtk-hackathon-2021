@@ -22,10 +22,10 @@ class DummyOtaHotelsSpider(scrapy.Spider):
 
     def start_requests(self):
         urls = [
-            # f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
-            # f'{server_location}/sitemap/hotels/Paris/?page=1',
-            # f'{server_location}/sitemap/hotels/London/?page=1',
-            # f'{server_location}/sitemap/hotels/Brussels/?page=1',
+            f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
+            f'{server_location}/sitemap/hotels/Paris/?page=1',
+            f'{server_location}/sitemap/hotels/London/?page=1',
+            f'{server_location}/sitemap/hotels/Brussels/?page=1',
             f'{server_location}/sitemap/hotels/Berlin/?page=1',
         ]
         for url in urls:

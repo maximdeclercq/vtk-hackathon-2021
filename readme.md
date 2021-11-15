@@ -1,3 +1,7 @@
+*THIS IS THE INSTRUCTORS VERSION WITH SOLUTIONS FROM [https://git.otainsight.com/workshop-vtk/hackathon-scrapy](https://git.otainsight.com/workshop-vtk/hackathon-scrapy).*
+
+*THE STUDENT VERSION SHOULD BE ON [https://git.otainsight.com/workshop-vtk/hackathon-students](https://git.otainsight.com/workshop-vtk/hackathon-students)*
+
 # 1. Introduction
 
 The workshop contains of two parts. The first aspect is an introduction to website crawling. The second part is a dataset analysis part on a pre-existing dataset.
@@ -39,6 +43,8 @@ pip install -r requirements.txt
 ### Get all the available hotels and their properties present on the site
 
 Note: This following description follows the scrapy tutorial on the [Scrapy Docs](https://docs.scrapy.org/en/latest/intro/tutorial.html#scrapy-tutorial), so make sure to have a look there as well.
+
+*Note: scroll down to `Analysis on the crawled data` to see the questions you need to answer. You can answer these partially, per city, and don't need to wait untill you have everything.*
 
 First you need to gather information about the inventory on the site: Which hotels are offering rates there? Every hotel on the site has some information about it on the site which you'll also need to store for analysis later on (e.g. the number of stars rating it has). Look where you can find this information on the site and how it is structured. In the same way you visit the site in your browser, your scraper will have to follow links to get to all pages it needs (but while you can just have a look, visually understand stuff and click around, your spider can only follow the rigid url structure you'll define in the code).
 
@@ -217,6 +223,7 @@ soup = BeautifulSoup(response.text, 'html5lib')
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
+- Different rates page
 ```
 
 #### Add data for Berlin

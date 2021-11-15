@@ -43,12 +43,6 @@ class DummyOtaRatesSpider(scrapy.Spider):
 		"Cancellation incurs a fee",
     ]
 
-    # def start_requests(self):
-    #     yield scrapy.Request(
-    #         url="http://localhost:8282/rates/London/1013657/?&destination=London&arrivalDate=2019-11-15&departureDate=2019-11-16&numPersons=2",
-    #         callback=self.parse
-    #     )
-
     def start_requests(self):
         url_template = server_location + '/rates/{destination_id}/{hotel_id}/?&page=1&destination=Amsterdam&arrivalDate={from_date}&departureDate={to_date}&numPersons=2'
 

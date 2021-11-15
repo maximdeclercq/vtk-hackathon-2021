@@ -25,6 +25,20 @@ The analysis should be performed using [this notebook on Google Colab](https://c
 The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a dataframe. 
 For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
 
+### Solutions
+[Solution notebook Nelis](https://colab.research.google.com/drive/1sxolzzHF4YzvrlyYft-SM1jO6gxnQbMn?usp=sharing)
+#### Exceptional deals
+Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and have a figure similar to the one below. 
+![task1](docs_images/solutions_ds/task_1.png)
+
+#### Patterns per destination
+* For the destination with most leisure-like behavior, the students should find one of the following destinations:
+![leisure](docs_images/solutions_ds/task_2_leisure.png)
+* For the destination with most business-like behavior, the students should find one of the following destinations:
+![business](docs_images/solutions_ds/task_2_business.png)
+* They should also plot the 2 determined business and leisure destinations in a figure as this: 
+![business](docs_images/solutions_ds/task_2_day_of_week.png)
+
 ## Task 2: Website scraping - data extraction
 
 This part contains the steps to implement the website crawler. which will visit all pages of the website and extract some raw data from it. We'll implement it in Python using the framework [Scrapy](https://scrapy.org/). This is the most well-known and widely used scraping framework, which we ourselves run as well on a very large scale.

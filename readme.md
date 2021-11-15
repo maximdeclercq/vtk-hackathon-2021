@@ -213,6 +213,7 @@ soup = BeautifulSoup(response.text, 'html5lib')
 ```
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
+- Disallowed by robots.txt
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line
@@ -226,6 +227,7 @@ You should get an error when scraping rates there. Look again at what is differe
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js. (see `ControlIDCookiesMiddleware`)
+- Disallowed by robots.txt
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars is a separate line

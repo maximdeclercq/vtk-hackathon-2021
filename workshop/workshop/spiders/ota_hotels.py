@@ -7,19 +7,24 @@ class DummyOtaHotelsSpider(scrapy.Spider):
     """ scrapy crawl ota_hotels -o hotels.json """
     name = "ota_hotels"
 
+    # Skeleton implementation
+
     # def start_requests(self):
     #     yield scrapy.Request(url='https://www.google.com/', callback=self.parse_function)
 
     # def parse_function(self, response):
     #     yield {"Success": True}
 
+
+    # Actual implementation
+
     def start_requests(self):
         urls = [
-            # f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
+            f'{server_location}/sitemap/hotels/Amsterdam/?page=1',
             # f'{server_location}/sitemap/hotels/Paris/?page=1',
             # f'{server_location}/sitemap/hotels/London/?page=1',
             # f'{server_location}/sitemap/hotels/Brussels/?page=1',
-            f'{server_location}/sitemap/hotels/Berlin/?page=1',
+            # f'{server_location}/sitemap/hotels/Berlin/?page=1',
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse_list)

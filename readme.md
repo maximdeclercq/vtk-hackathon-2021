@@ -284,9 +284,17 @@ Simple solution example: See workshop/analyze_hotels.py
 ```
 
 ```
+Paris hotels: 114
+Paris num_rooms: 19658
+Paris 0.39220442864659255 ('Sheraton Paris Roissy Airport', 'Novotel Paris Pont De Sevres')
+
 Amsterdam hotels: 122
 Amsterdam num_rooms: 22635
 Amsterdam 0.25070862635888674 ('Novotel Amsterdam Schiphol Airport', 'a&o Amsterdam Zuidoost')
+
+Berlin hotels: 98
+Berlin num_rooms: 22750
+Berlin 0.1641760842784347 ("Ku'Damm 101 Hotel ", "Vienna House Andel's Berlin ")
 
 Brussels hotels: 85
 Brussels num_rooms: 13812
@@ -295,26 +303,76 @@ Brussels 0.15742175107338308 ('Sheraton Brussels Airport Hotel', 'Hotel Park Inn
 London hotels: 114
 London num_rooms: 24968
 London 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
-
-Paris hotels: 114
-Paris num_rooms: 19658
-Paris 0.39220442864659255 ('Sheraton Paris Roissy Airport', 'Novotel Paris Pont De Sevres')
-
-Berlin hotels: 98
-Berlin num_rooms: 22750
-Berlin 0.1641760842784347 ("Ku'Damm 101 Hotel ", "Vienna House Andel's Berlin ")
 ```
 
 #### Rates
 
 TODO: add results / implementations here
 
-- For these hotels, how many rates are there on the website, how many of them are refundable and non-refundable, how many include breakfast or not?
+- Per city: across all hotels in a city over the entire period, how many rates are there on the website, what is the minimum / mean / maximum value of the advertised rates?
+- how many of them are refundable and non-refundable, how many include breakfast or not?
 
-- Give the percentage of hotels per destination which are sold out on 25-12-2021
+```
+Amsterdam
+Got 20393 rates
+min value 14.5
+mean value 155.33096405629382
+max value 900.19
+refundable 13763 non-refundable 6630 percentage refundable 67.49%
+with meal 1399 without meal 18994 percentage with meal 6.86%
+
+Paris
+Got 16001 rates
+min value 58.74
+mean value 205.35388100743702
+max value 2250.0
+refundable 13402 non-refundable 2599 percentage refundable 83.76%
+with meal 1575 without meal 14426 percentage with meal 9.84%
+
+Brussels
+Got 12258 rates
+min value 16.0
+mean value 125.96526921194322
+max value 714.76
+refundable 9956 non-refundable 2302 percentage refundable 81.22%
+with meal 748 without meal 11510 percentage with meal 6.10%
+
+London
+Got 14823 rates
+min value 37.0
+mean value 308.3473527625987
+max value 4189.32
+refundable 11992 non-refundable 2831 percentage refundable 80.90%
+with meal 1154 without meal 13669 percentage with meal 7.79%
+
+Berlin
+Got 15406 rates
+min value 9.55
+mean value 127.52127028430482
+max value 712.7
+refundable 11914 non-refundable 3492 percentage refundable 77.33%
+with meal 1381 without meal 14025 percentage with meal 8.96%
+```
+
+- Give the percentage of hotels per destination which have availability on 25-12-2021
+
+```
+Amsterdam
+Amount of hotels with availability 117 , percentage 95.90%
+Paris
+Amount of hotels with availability 106 , percentage 92.98%
+Brussels
+Amount of hotels with availability 73 , percentage 85.88%
+London
+Amount of hotels with availability 93 , percentage 81.58%
+Berlin
+Amount of hotels with availability 87 , percentage 88.78%
+```
+
+-
 
 - What's the average price per person, destination, and number of stars. Do this in two steps:
-  - Calculate for every rate the per-person-per-night cost, and take for each hotel the cheapest of the available options per  arrival date. For example, if you arrive at a certain date, there could be a room for 2 persons for a stay of 2 nights available, and there could be a room for 1 person for 2 nights available. In order to allow some form of comparions, equalize each rate to this per-person-per-night cost. Note that this calculation, and looking at the cheapest option, assumes that you would be able to pick and match rates; take a night from the first option from the example, and then 1 night from the second option. In reality this is not the case, but otherwise a comparison would be infeasible here.
+  - Calculate for every rate the per-person-per-night cost, and take for each hotel the cheapest of the available options per arrival date. For example, if you arrive at a certain date, there could be a room for 2 persons for a stay of 2 nights available, and there could also be a room for 1 person for 2 nights available. In order to allow some form of comparions, equalize each rate to this per-person-per-night cost. Note that this calculation, and looking at the cheapest option, assumes that you would be able to pick and match rates; take a night from the first option from the example, and then 1 night from the second option. In reality this is not the case, but otherwise a comparison would be infeasible here.
 
 - For stays of 1 night, calculate the average price for a room for each hotel if you arrive on a weekday versus if you arrive on a weekend day. How many hotels are more expensive in the weekend than during the week? Why is that do you think?
 

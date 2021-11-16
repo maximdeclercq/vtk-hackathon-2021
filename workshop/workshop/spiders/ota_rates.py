@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 server_location = 'http://35.233.25.116'
 
-# server_location = 'http://localhost:8282'
+server_location = 'http://localhost:8282'
 
 
 class DummyOtaRatesSpider(scrapy.Spider):
@@ -56,9 +56,13 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
         # Loop over hotels
         for hotel in all_hotels:
+            if hotel['destination'] != 'Berlin':
+                continue
+            # if hotel['hotel_id'] != '10064':
+            #     continue
             # Loop over start dates
-            start_date = arrow.get('2021-11-15')
-            end_date = arrow.get('2022-04-01')
+            start_date = arrow.get('2021-11-18')
+            end_date = arrow.get('2022-02-01')
             for from_date in list(arrow.Arrow.range('day', start_date, end_date)):
                 # Request LOS 1 and 2
                 for los in [1, 2]:
@@ -89,15 +93,15 @@ class DummyOtaRatesSpider(scrapy.Spider):
             rate_properties = soup.find(id="rates-info").find('table').find_all('tr')
             room_name = rate_properties[0].text.split(": ")[1].strip()
 
-            if 'Sold OUT' in room_name:
+            if 'sold out' in room_name.lower():
                 return
-            else:
-                price_info = rate_properties[1].text.split(": ")[1]
-                currency, _, amount = price_info.partition(' ')
 
-                breakfast_included = rate_properties[2].text.strip() in self.breakfast_included_strings
-                refundable = rate_properties[3].text.strip() in self.refundable_strings
-                number_guests = rate_properties[4].text.split(": ")[1]
+            price_info = rate_properties[1].text.split(": ")[1]
+            currency, _, amount = price_info.partition(' ')
+
+            breakfast_included = rate_properties[2].text.strip() in self.breakfast_included_strings
+            refundable = rate_properties[3].text.strip() in self.refundable_strings
+            number_guests = rate_properties[4].text.split(": ")[1]
 
         else:
             # hotel info
@@ -106,18 +110,18 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
             # rate info
             rate_properties = response.css('div.rate-card-body')[0].css('.list-group-item::text').getall()
-            room_name = rate_properties[0].split(": ")[1]
+            room_name = rate_properties[0].split(": ")[1].strip()
 
-            if 'Sold out' in room_name.lower():
+            if 'sold out' in room_name.lower():
                 return
-            else:
-                price_info = rate_properties[1].split(": ")[1]
-                currency, _, amount = price_info.partition(' ')
+
+            price_info = rate_properties[1].split(": ")[1]
+            currency, _, amount = price_info.partition(' ')
 
 
-                breakfast_included = rate_properties[2].strip() in self.breakfast_included_strings
-                refundable = rate_properties[3].strip() in self.refundable_strings
-                number_guests = rate_properties[4].split(": ")[1]
+            breakfast_included = rate_properties[2].strip() in self.breakfast_included_strings
+            refundable = rate_properties[3].strip() in self.refundable_strings
+            number_guests = rate_properties[4].split(": ")[1]
 
         yield {
             'arrival_date': arrival_date,

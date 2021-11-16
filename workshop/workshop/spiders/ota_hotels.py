@@ -2,7 +2,7 @@ import scrapy
 
 server_location = 'http://35.233.25.116'
 
-server_location = 'http://localhost:8282'
+# server_location = 'http://localhost:8282'
 
 
 class DummyOtaHotelsSpider(scrapy.Spider):

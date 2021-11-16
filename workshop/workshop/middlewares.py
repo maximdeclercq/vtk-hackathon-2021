@@ -15,7 +15,7 @@ from scrapy.utils.response import response_status_message
 
 server_location = 'http://35.233.25.116'
 
-server_location = 'http://localhost:8282'
+# server_location = 'http://localhost:8282'
 
 
 

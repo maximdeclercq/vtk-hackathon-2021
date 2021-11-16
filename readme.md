@@ -194,6 +194,7 @@ Note that you likely won't be able to access all rates with your first attempt. 
 For different locations, the website will behave a bit different. Amsterdam is the easiest one. When you get that going, you can start looking into adding data from other locations. The recommended ordering to start crawling cities: Amsterdam, Brussels, Paris, London, Berlin. Some anti-bot measures from earlier cities are also present in later cities. Both the inventory of the hotels in a destination and the rates of a destination contain similar anti-crawl measures.
 
 ```
+- Sold out rate = 404 response
 - Hotels detail page:
   - RoomCount is after the title between square brackets
   - Stars is a separate line
@@ -202,6 +203,7 @@ For different locations, the website will behave a bit different. Amsterdam is t
 #### Add data for Brussels
 
 ```
+- Sold out rate = 404 response
 - Rate limit (see `RateLimitRetryMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
@@ -218,12 +220,15 @@ At this point, try looking at the hotels and rates in Paris.
 The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 
 ```
+- Sold out rate = 200 response with sold out rate
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Hotels detail page:
   - RoomCount is a separate line
   - Stars are asterisks behind the hotel name
 ```
+
+![Rate soldout page](docs_images/soldout.png)
 
 #### Add data for London
 
@@ -236,6 +241,7 @@ soup = BeautifulSoup(response.text, 'html5lib')
 ```
 
 ```
+- Sold out rate = 200 response with sold out rate
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Disallowed by robots.txt
@@ -250,6 +256,7 @@ soup = BeautifulSoup(response.text, 'html5lib')
 You should get an error when scraping rates there. Look again at what is different between the request from scrapy vs the request from your browser, use your browser inspector to see what the site is doing. If you get a 403 response, it's because of something different; the issue you're looking for will resut in a 400 response.
 
 ```
+- Sold out rate = 200 response with sold out rate
 - Rate limit (see `RateLimitRetryMiddleware`)
 - User agent check (see `UserAgentDownloaderMiddleware`)
 - Requests need a cookie with key 'controlid' and the b64-encoded path as value. It is set on the site via app.js. (see `ControlIDCookiesMiddleware`)

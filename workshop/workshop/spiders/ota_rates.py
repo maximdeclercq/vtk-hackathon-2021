@@ -1,4 +1,3 @@
-import base64
 import json
 
 import arrow
@@ -16,33 +15,33 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
     breakfast_included_strings = [
         "Breakfast included: Yes",
-		"Included free breakfast",
-		"With breakfast",
-		"All meals are inclusive",
-		"✅ Breakfast",
+        "Included free breakfast",
+        "With breakfast",
+        "All meals are inclusive",
+        "✅ Breakfast",
     ]
     breakfast_excluded_strings = [
         "Breakfast included: No",
-		"Does not include free breakfast",
-		"No free breakfast included",
-		"No breakfast",
-		"Breakfast at additional cost",
-		"❌ Breakfast",
+        "Does not include free breakfast",
+        "No free breakfast included",
+        "No breakfast",
+        "Breakfast at additional cost",
+        "❌ Breakfast",
     ]
 
     refundable_strings = [
         "Refundable: Yes",
-		"Refundable",
-		"Free cancellation",
-		"Can be cancelled free of charge",
-		"No fee upon cancellation",
+        "Refundable",
+        "Free cancellation",
+        "Can be cancelled free of charge",
+        "No fee upon cancellation",
     ]
     non_refundable_strings = [
         "Refundable: No",
-		"Non-Refundable",
-		"No Free cancellation",
-		"Can not be cancelled free of charge",
-		"Cancellation incurs a fee",
+        "Non-Refundable",
+        "No Free cancellation",
+        "Can not be cancelled free of charge",
+        "Cancellation incurs a fee",
     ]
 
     def start_requests(self):
@@ -117,8 +116,6 @@ class DummyOtaRatesSpider(scrapy.Spider):
 
             price_info = rate_properties[1].split(": ")[1]
             currency, _, amount = price_info.partition(' ')
-
-
             breakfast_included = rate_properties[2].strip() in self.breakfast_included_strings
             refundable = rate_properties[3].strip() in self.refundable_strings
             number_guests = rate_properties[4].split(": ")[1]

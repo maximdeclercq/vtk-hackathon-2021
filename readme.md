@@ -285,6 +285,7 @@ These are questions about the data you gathered from the website. Each of them a
 - For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric
 
 ```sql
+-- count hotels per city
 SELECT destination_id, COUNT(DISTINCT their_hotel_id) AS num_hotels, SUM(room_count) AS num_rooms FROM hotels GROUP BY destination_id;
 ```
 
@@ -321,6 +322,11 @@ London 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
 The solution below contains this question's solution as well
 
 - how many of them are refundable and non-refundable, how many include breakfast or not?
+
+```sql
+-- refundables per city
+SELECT destination_id, price_is_cancellable, count(*) FROM rates GROUP BY destination_id, price_is_cancellable;
+```
 
 ```
 python analyze_rates_city_stats.py
@@ -369,6 +375,11 @@ with meal 1381 without meal 14025 percentage with meal 8.96%
 ```
 
 - Give the percentage of hotels per destination which have availability on 25-12-2021
+
+```sql
+-- availability on christmas
+SELECT destination_id, COUNT(DISTINCT their_hotel_id) FROM rates WHERE from_date_local = '2021-12-25' GROUP BY destination_id;
+```
 
 ```
 python analyze_rates_soldout.py

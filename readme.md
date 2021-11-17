@@ -15,6 +15,8 @@ You're going to scrape the information of a website with rates of hotel rooms. Y
 
 If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out. If you are stuck anywhere along one of the tasks for a while, call us to help you.
 
+
+
 # 2. Tasks to do
 
 ## Task 1: Analysis on pre-filled dataset
@@ -47,6 +49,13 @@ Start by looking around a bit on the site. It's a very simple website with regar
 
 ![OTA](docs_images/ota.png)
 
+#### Solutions
+
+The instruction version of this readme file contains inline the answers to the questions being asked, and information about the crawling countermeasures the students need to overcome.
+
+The repository [hackathon-scrapy](https://git.otainsight.com/workshop-vtk/hackathon-scrapy) contains a fully functional scraper implementation for everything below. The scraped data is put on the repo as [workshop/scraped_data.zip](workshop/scraped_data.zip). This data works with some pythonscripts also included in that repo to answer the questions about scraped data below.
+
+The data (hotels and rates) on the website comes from a sqlite database which can be found on the [hackathon-ota repo](https://git.otainsight.com/workshop-vtk/hackathon-ota/-/tree/master/data). In the questions below, there are sometimes sql queries as well (next to a python solution) to calculate the answers.
 
 ### Setup
 
@@ -368,8 +377,6 @@ Amount of hotels with availability 93 , percentage 81.58%
 Berlin
 Amount of hotels with availability 87 , percentage 88.78%
 ```
-
--
 
 - What's the average price per person, destination, and number of stars. Do this in two steps:
   - Calculate for every rate the per-person-per-night cost, and take for each hotel the cheapest of the available options per arrival date. For example, if you arrive at a certain date, there could be a room for 2 persons for a stay of 2 nights available, and there could also be a room for 1 person for 2 nights available. In order to allow some form of comparions, equalize each rate to this per-person-per-night cost. Note that this calculation, and looking at the cheapest option, assumes that you would be able to pick and match rates; take a night from the first option from the example, and then 1 night from the second option. In reality this is not the case, but otherwise a comparison would be infeasible here.

@@ -229,7 +229,7 @@ See comparison on the layout of the hotel pages in Amsterdam versus Brussels:
 
 At this point, try looking at the hotels and rates in Paris.
 
-The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. 
+The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking.
 
 Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 

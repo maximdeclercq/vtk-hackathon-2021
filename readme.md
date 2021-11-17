@@ -316,10 +316,15 @@ London 0.24486584430239494 ('Novotel London West ', 'Novotel London Excel ')
 
 #### Rates
 
-TODO: add results / implementations here
-
 - Per city: across all hotels in a city over the entire period, how many rates are there on the website, what is the minimum / mean / maximum value of the advertised rates?
+
+The solution below contains this question's solution as well
+
 - how many of them are refundable and non-refundable, how many include breakfast or not?
+
+```
+python analyze_rates_city_stats.py
+```
 
 ```
 Amsterdam
@@ -366,6 +371,10 @@ with meal 1381 without meal 14025 percentage with meal 8.96%
 - Give the percentage of hotels per destination which have availability on 25-12-2021
 
 ```
+python analyze_rates_soldout.py
+```
+
+```
 Amsterdam
 Amount of hotels with availability 117 , percentage 95.90%
 Paris
@@ -378,14 +387,65 @@ Berlin
 Amount of hotels with availability 87 , percentage 88.78%
 ```
 
-- What's the average price per person, destination, and number of stars. Do this in two steps:
+- What's the average price per person per night for a destination and number of stars. Do this in two steps:
   - Calculate for every rate the per-person-per-night cost, and take for each hotel the cheapest of the available options per arrival date. For example, if you arrive at a certain date, there could be a room for 2 persons for a stay of 2 nights available, and there could also be a room for 1 person for 2 nights available. In order to allow some form of comparions, equalize each rate to this per-person-per-night cost. Note that this calculation, and looking at the cheapest option, assumes that you would be able to pick and match rates; take a night from the first option from the example, and then 1 night from the second option. In reality this is not the case, but otherwise a comparison would be infeasible here.
 
-- For stays of 1 night, calculate the average price for a room for each hotel if you arrive on a weekday versus if you arrive on a weekend day. How many hotels are more expensive in the weekend than during the week? Why is that do you think?
+```
+python analyze_rates_stars.py
+```
 
-    Explanation as to why this is? Not something which is necessarily present in the data, just think about it.
+```
+Amsterdam
+2 24.07351401869159
+3 54.29754421590462
+4 67.42267688442212
+5 166.43429120879122
 
-    Leisure hotels vs business hotels have different pricing strategies.
+Paris
+3 55.59802030967223
+4 71.28170088689102
+5 188.04831069002503
 
+Brussels
+2 40.294444444444444
+3 43.87997980517938
+4 56.14934183431015
+5 76.42045596502186
 
+London
+3 63.5339953271028
+4 74.37288009076795
+5 234.1743752446184
 
+Berlin
+1 17.995730117340287
+3 44.36306413301663
+4 49.91072358852307
+5 96.26064650310208
+```
+
+- For stays of 1 night and 2 persons, calculate the average price for a room for each hotel if you arrive on a weekday versus if you arrive on a weekend day. How many hotels are more expensive in the weekend than during the week? Why is that do you think? Only include hotels that have prices both on weekends and weekdays
+
+    Could you think of an explanaction as to why this is? Not something which is necessarily present in the data, just think about it.
+
+```
+Amsterdam
+week_more_expensive_count 27
+weekend_more_expensive_count 91
+Paris
+week_more_expensive_count 92
+weekend_more_expensive_count 19
+Brussels
+week_more_expensive_count 66
+weekend_more_expensive_count 12
+London
+week_more_expensive_count 72
+weekend_more_expensive_count 33
+Berlin
+week_more_expensive_count 64
+weekend_more_expensive_count 27
+```
+
+```
+Leisure hotels vs business hotels have different pricing strategies.
+```

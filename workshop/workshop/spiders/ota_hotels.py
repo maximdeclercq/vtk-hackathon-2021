@@ -1,8 +1,8 @@
 import scrapy
 
-server_location = 'http://35.233.25.116'
+# server_location = 'http://35.233.25.116'
 
-# server_location = 'http://localhost:8282'
+server_location = 'http://localhost:8282'
 
 
 class DummyOtaHotelsSpider(scrapy.Spider):
@@ -88,7 +88,12 @@ class DummyOtaHotelsSpider(scrapy.Spider):
             latitude = float(coordinates_text_parts[0].split(' ')[1])
             longitude = float(coordinates_text_parts[1].split(' ')[1])
 
-            stars = int(title.count('*'))
+            if destination == 'Berlin':
+                stars_html = card_texts[-1]
+                stars_text = stars_html.replace('<p class="card-text"><small class="text-muted">', '').replace('</small></p>', '')
+                stars = int(stars_text.split(' ')[3])
+            else:
+                stars = int(title.count('*'))
 
             try:
                 num_rooms = int(card_texts[2].split('There are ')[1].split(' rooms')[0])

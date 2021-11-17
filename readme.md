@@ -6,12 +6,12 @@
 
 The workshop contains of two parts. The first aspect is a data science task on a pre-existing dataset. The second task is an introduction to website crawling.
 
-We recommend with some people starting on the data science task and some people starting on the scraping part in parallel.
+We recommend that some people start with the data science task and that the others start with the scraping part in parallel.
 
 #### Website crawing 101
-You're going to scrape the information of a website with rates of hotel rooms. Your server is located on [http://35.233.25.116/](http://35.233.25.116/) and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...). Our website contains a selected limited dataset of real rates we have taken: they come from [Booking.com](https://www.booking.com) and span about a year in the future. The data can be divided into a subset of hotel room rates from a few cities, extracted earlier this month. You'r going to extract the data from this website yourself now.
+You're going to scrape the information of a website with rates of hotel rooms. Your server is located on [http://35.233.25.116/](http://35.233.25.116/) and represents a very basic OTA (Online Travel Agency, e.g. [Booking.com](https://www.booking.com), [Expedia](https://www.expedia.com/), [Hotels.com](https://nl.hotels.com/) ...). Our website contains some real rates: they come from [Booking.com](https://www.booking.com) and span about three months in the future. The data can be divided into a subset of hotel room rates from a few cities, extracted earlier this month. You're going to extract the data from this website yourself in the crawling part.
 
- Accross the site, there are some realistic anti-bot measure being put in place which you'll have to counter. The anti-bot measures are different per city (so hotels in e.g. Amsterdam are behaving differently from hotels in London), so you should start with the easiest city and work your way up. You'll be asked questions about the data for every city, so once you have data for one city you can start answering questions about that already. Later you can add the data about the new cities after you have extracted data from a different city.
+ Accross the site, some realistic anti-bot measures were put in place which you'll have to take into account while scraping our OTA. The anti-bot measures are different per city. While scraping rates for hotels in e.g. Amsterdam you will encounter different anti-bot measures as compared to scraping rates of hotels in e.g. London. You should start with the easiest city and work your way up. You'll be asked questions about the data of every city. Once you have scraped and processed the data for one city you can start answering the corresponding questions. Then you continue scraping the next city and answer those questions.
 
 If you have any questions about what to do, need help, or have any other question, be sure to ask us. We're present with some people to help you out. If you are stuck anywhere along one of the tasks for a while, call us to help you.
 
@@ -19,12 +19,12 @@ If you have any questions about what to do, need help, or have any other questio
 
 # 2. Tasks to do
 
-## Task 1: Analysis on pre-filled dataset
+## Task 1: Analysis on rates dataset
 
-This analysis on the pre-filled dataset can be done separately from the website scraping.
+The analysis on the pre-filled dataset can be done separately from the website scraping task.
 
 The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing).
-The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains the already-implemented code to load the data from Cloud Storage into a dataframe.
+The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains already implemented code to load the data from Cloud Storage into a dataframe.
 For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
 
 ### Solutions
@@ -74,9 +74,9 @@ Note: This following description follows the scrapy tutorial on the [Scrapy Docs
 
 *Note: scroll down to `Analysis on the crawled data` to see the questions you need to answer. You can answer these partially, per city, and don't need to wait untill you have everything.*
 
-First you need to gather information about the inventory on the site: Which hotels are offering rates there? Every hotel on the site has some information about it on the site which you'll also need to store for analysis later on (e.g. the number of stars rating it has). Look where you can find this information on the site and how it is structured. In the same way you visit the site in your browser, your scraper will have to follow links to get to all pages it needs (but while you can just have a look, visually understand stuff and click around, your spider can only follow the rigid url structure you'll define in the code).
+First you need to gather information about the inventory on the site: Which hotels are offering rates there? Every hotel on the site has some information about it on the site which you'll also need to store for analysis later on (e.g. the number of stars rating it has). Look where you can find this information on the site and how it is structured. In the same way you visit the site in your browser, your scraper will have to follow links to get to all pages it needs (but while you can just have a look, visually understand stuff and click around, your spider (i.e. the software component that crawls the website) can only follow the rigid url structure you'll define in the code).
 
-In the file `workshop/spiders/ota_hotels.py` there is a spider class `OtaHotelsSpider` where you need to implement this spider. It has two placeholder methods you'll need to fill in. To run this spider as it is, which will do a request to google and output a dummy dictionary, do:
+In the file `workshop/workshop/spiders/ota_hotels.py` there is a spider class `OtaHotelsSpider` where you need to implement this spider. It has two placeholder methods you'll need to fill in. To run this spider as it is, which will do a request to google and output a dummy dictionary, do:
 
 ```bash
 cd workshop
@@ -139,11 +139,11 @@ It will output some configuration info, then the list of every url it visits, th
 2021-11-13 13:49:43 [scrapy.core.engine] INFO: Spider closed (finished)
 ```
 
-There are 2 methods you need to implement: `start_requests` and `parse_function`. The `start_requests` function is the entry point of your scraper: here you generate a set of urls to start visiting, and for each url, the callback function that will be called with the result. In that callback function (in this case `parse_function`, you can have multiple ones and name them however you like), you extract the information from the response and yield it as a dictionary.
+There are 2 methods you need to implement: `start_requests` and `parse_function`. The `start_requests` function is the entry point of your scraper: it is a generator function that yields the urls and callback functions that the spider should crawl and call. When the spider has crawled an url, it will call the callback function with the raw crawled response. In that callback function (in this case `parse_function`, you can have multiple ones and name them however you like), you extract the information from the response and yield it as a dictionary. If you are not yet familiar with generator functions in Python, [this](https://realpython.com/introduction-to-python-generators/) is a useful link.
 
 Look in the [Scrapy tutorial part about data extracting](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) for how to get the elements you need. Start with a basic implementation in your parsing method and make sure you can reach all the hotels before getting lost in trying to extract all info from each hotel; due to some anti-bot measures, you won't be able to get everything at first. **Start with the hotels from Amsterdam.** That city is the easiest and has no anti-crawl measures. Once Amsterdam works, see a later part to add data for other cities.
 
-To investigate how to extract the necessary elements from the website responses, start by yielding (one or) some hardcoded urls in `start_requests`. The Scrapy docs then mention the [Scrapy shell](https://docs.scrapy.org/en/latest/topics/shell.html#topics-shell) which you can use to interactively inspect a response. You can also use [Ipdb](https://pypi.org/project/ipdb/), which opens an interactive ipython shell where you want to debug something; add this line as the first one in your function.
+To investigate how to extract the necessary elements from the website responses, start by yielding (one or) some hardcoded urls in `start_requests`. The Scrapy documentation mentions the [Scrapy shell](https://docs.scrapy.org/en/latest/topics/shell.html#topics-shell) which you can use to interactively inspect a response. You can also use [Ipdb](https://pypi.org/project/ipdb/), which opens an interactive ipython shell in case you want to debug something; add this line as the first one in your function.
 
 ```python
 def parse_function(self, response):
@@ -164,7 +164,7 @@ You can try some data extracting here interactively using the `response` object.
 
 Run your crawler and look at the logs, they will contain the items you generate. Compare the info against what you see yourself on the site.
 
-Once you (think you) have the spider done (**to reiterate, focus on Amsterdam only for the time being**) and it's yielding dicts for each hotels, you can run it with a flag to store every item being yielded in a json file locally (which you'll read in a next stage). In this case the results are small enough to save on disk on a file, in real life scenario's (and at our scale) this if of course not the case and we'd put this into streaming data processing queues and a database. Having it in a json locally works well here and is easy to work with and inspect. Run it with the output flag like this:
+Once you (think you) have the spider done (**to reiterate, focus on Amsterdam only for the time being**) and it's yielding dicts for each hotels, you can run it with a flag to store every item being yielded in a json file locally (which you'll read in a next stage). In this case the results are small enough to save on disk on a file, in real life scenario's (and at OTA Insight its scale) this if of course not the case and we'd put this into streaming data processing queues and a database. Having it in a json locally works well here and is easy to work with and inspect. Run it with the output flag like this:
 
 ```bash
 scrapy crawl ota_hotels -o hotels.json
@@ -186,17 +186,19 @@ In `workshop/workshop/settings.py`, change CONCURRENT_REQUESTS, CONCURRENT_REQUE
 Some should see rate limiting in action, so 429 responses occuring which isn't handled by default. Add middleware to handle retries (RateLimitRetryMiddleware) and bump the RETRY_TIMES setting
 ```
 
-### Get the rates of all hotels on the site for the coming year.
+### Get the rates of all hotels on the site for the coming three months.
 
 Now that you have (some of) the hotels in the inventory of the site, you can start getting the rates for them. The file `workshop/spiders/ota_rates.py` will contain the spider for the rates. Implement it in the same way as you have done the previous spider; Look around on the website for how the url's are structured so you can generate them in `start_requests`. Going via the search form every time and looping through the results would be very inneficient (in reality this is most of the time not feasible). The hotels available on the website are available in the json you made in the previous step, so use that to generate requests.
 
-Our dataset contains rates with number of persons in a room being 1 or 2, arrival dates ranging from now to about a year in the future, and number of nights for a stay being 1 or 2. Make a `start_requests` method to loop over all destinations, all hotels in each destination, and all the date ranges.
+Our dataset contains rates with number of persons in a room being 1 or 2, arrival dates ranging from now to about three months in the future, and number of nights for a stay being 1 or 2. Make a `start_requests` method to loop over all destinations, all hotels in each destination, and all the date ranges.
 
 Extract the properties of each rate and yield a dictionary from your parse function. For the time being, also use the `-o rates.json` flag to store the results in a json file. You can inspect the results easily this way.
 
 *Note: we advise to store as much **raw** information as possible in the item you are yielding. The goal of the scraper is to just collect web pages, extract parts of it and then push them to a later component. That later component (a data transformation step) will then process the item and this is where you'll do things like string parsing of raw information in your item. This allows you to do a bugfix in your transformation step if you encounter e.g. a new type of breakfast-included message and reprocess all the items that you crawled with the latest transformation code to correct things in your database, without having to recrawl.*
 
 Note that you likely won't be able to access all rates with your first attempt. This is intentional due to the anti-crawl measures. **Focus on the rates in Amsterdam first to get your crawler going.** Once Amsterdam works, see later parts for adding data for other cities.
+
+**Don't forget to answer the questions in `Analysis on the crawled data` when you crawled a city**. You should not wait with answering the questions until you have scraped all cities.◊
 
 ### 2.a.3 Add other data than Amsterdam.
 
@@ -226,7 +228,10 @@ See comparison on the layout of the hotel pages in Amsterdam versus Brussels:
 #### Add data for Paris
 
 At this point, try looking at the hotels and rates in Paris.
-The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
+
+The rates (and hotels) for Paris are likely not going to work; you'll get an http 403 response when scraping. Find out why that is, and implement a change to counter this blocking. 
+
+Compare what your browser is sending vs what Scrapy is sending as a request. Have a look at the docs on [Best Practices](https://docs.scrapy.org/en/latest/topics/practices.html) if you see anything which might be relevant for you.
 
 ```
 - Sold out rate = 200 response with sold out rate
@@ -282,7 +287,7 @@ These are questions about the data you gathered from the website. Each of them a
 #### Hotels
 
 - How many hotels, and how many rooms do we have in each city?
-- For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric
+- For each destination, which hotels are the furthest apart? Use the normal euclidian $L^2$ norm as distance metric.
 
 ```sql
 -- count hotels per city

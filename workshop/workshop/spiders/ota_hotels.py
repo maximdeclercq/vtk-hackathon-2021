@@ -17,7 +17,6 @@ class DummyOtaHotelsSpider(scrapy.Spider):
     # def parse_function(self, response):
     #     yield {"Success": True}
 
-
     # Actual implementation
 
     def start_requests(self):

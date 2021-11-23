@@ -1,6 +1,5 @@
-*THIS IS THE INSTRUCTORS VERSION WITH SOLUTIONS FROM [https://git.otainsight.com/workshop-vtk/hackathon-scrapy](https://git.otainsight.com/workshop-vtk/hackathon-scrapy).*
+*NOTE: THIS IS THE VERSION WITH SOLUTIONS*
 
-*THE STUDENT VERSION SHOULD BE ON [https://git.otainsight.com/workshop-vtk/hackathon-students](https://git.otainsight.com/workshop-vtk/hackathon-students)*
 
 # 1. Introduction
 
@@ -51,9 +50,9 @@ Start by looking around a bit on the site. It's a very simple website with regar
 
 #### Solutions
 
-The instruction version of this readme file contains inline the answers to the questions being asked, and information about the crawling countermeasures the students need to overcome.
+The instruction version of this readme file contains inline answers to the questions being asked, and information about the crawling countermeasures the students need to overcome.
 
-The repository [hackathon-scrapy](https://git.otainsight.com/workshop-vtk/hackathon-scrapy) contains a fully functional scraper implementation for everything below. The scraped data is put on the repo as [workshop/scraped_data.zip](workshop/scraped_data.zip). This data works with some pythonscripts also included in that repo to answer the questions about scraped data below.
+The repository folder [scraping_solution](/scraping_solution) contains a fully functional implementation for everything below. The scraped data resulting from that implementation is put on the repo as well as [scraped_data.zip](scraping_solution/scraped_data.zip). This data works with some pythonscripts also included in that folder to answer the questions about scraped data below.
 
 The data (hotels and rates) on the website comes from a sqlite database which can be found on the [hackathon-ota repo](https://git.otainsight.com/workshop-vtk/hackathon-ota/-/tree/master/data). In the questions below, there are sometimes sql queries as well (next to a python solution) to calculate the answers.
 

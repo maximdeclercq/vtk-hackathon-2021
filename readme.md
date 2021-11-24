@@ -22,23 +22,12 @@ If you have any questions about what to do, need help, or have any other questio
 
 The analysis on the pre-filled dataset can be done separately from the website scraping task.
 
-The analysis should be performed using [this notebook on Google Colab](https://colab.research.google.com/drive/1uebtfVFwjz8DYoz_B2eD4yoBX1EWkxER?usp=sharing).
+The analysis should be performed using the notebook [data_science/task_students.ipynb](/data_science/task_students.ipynb) which can be run on [Google Colab](https://colab.research.google.com/).
 The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains already implemented code to load the data from Cloud Storage into a dataframe.
 For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
 
-### Solutions
-[Solution notebook Nelis](https://colab.research.google.com/drive/1sxolzzHF4YzvrlyYft-SM1jO6gxnQbMn?usp=sharing)
-#### Exceptional deals
-Students should give the answer (hotel_id:`3790173`, stay_date `2022-01-04`) and have a figure similar to the one below.
-![task1](docs_images/solutions_ds/task_1.png)
-
-#### Patterns per destination
-* For the destination with most leisure-like behavior, the students should find one of the following destinations:
-![leisure](docs_images/solutions_ds/task_2_leisure.png)
-* For the destination with most business-like behavior, the students should find one of the following destinations:
-![business](docs_images/solutions_ds/task_2_business.png)
-* They should also plot the 2 determined business and leisure destinations in a figure as this:
-![business](docs_images/solutions_ds/task_2_day_of_week.png)
+#### Solutions
+The solution can be found in the notebook [data_science/solution.ipynb](/data_science/solution.ipynb).
 
 ## Task 2: Website scraping - data extraction
 

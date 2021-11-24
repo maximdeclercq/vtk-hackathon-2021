@@ -1,5 +1,6 @@
 *NOTE: THIS IS THE VERSION WITH SOLUTIONS*
 
+*NOTE: Introduction slides of the event can be found on [VTK_Hackathon_intro.pdf](VTK_Hackathon_intro.pdf)*
 
 # 1. Introduction
 
@@ -22,7 +23,7 @@ If you have any questions about what to do, need help, or have any other questio
 
 The analysis on the pre-filled dataset can be done separately from the website scraping task.
 
-The analysis should be performed using the notebook [data_science/task_students.ipynb](/data_science/task_students.ipynb) which can be run on [Google Colab](https://colab.research.google.com/).
+The analysis should be performed using the notebook [data_science/tasks.ipynb](/data_science/tasks.ipynb) which can be run on [Google Colab](https://colab.research.google.com/).
 The notebook has a description of the data and the subtasks that should be solved. Furthermore, it contains already implemented code to load the data from Cloud Storage into a dataframe.
 For the analysis you will use the [Pandas](https://pandas.pydata.org/docs/) library, which is one of the most well-known data analysis Python packages.
 

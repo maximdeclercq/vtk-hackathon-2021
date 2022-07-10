@@ -1,0 +1,798 @@
+[
+  {
+    "name": "Okko Hotels Paris Porte De Versailles",
+    "rooms": 149,
+    "latitude": 48.832554,
+    "longitude": 2.2784424,
+    "stars": 4
+  },
+  {
+    "name": "ibis Styles Paris Charles de Gaulle Airport",
+    "rooms": 305,
+    "latitude": 49.01056,
+    "longitude": 2.5619543,
+    "stars": 3
+  },
+  {
+    "name": "Hyatt Regency Paris - Charles De Gaulle",
+    "rooms": 388,
+    "latitude": 48.990997,
+    "longitude": 2.5155258,
+    "stars": 4
+  },
+  {
+    "name": "Pullman Paris Roissy Cdg Airport",
+    "rooms": 305,
+    "latitude": 49.010918,
+    "longitude": 2.5625381,
+    "stars": 4
+  },
+  {
+    "name": "Melia Paris La Defense",
+    "rooms": 369,
+    "latitude": 48.888428,
+    "longitude": 2.2495794,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel de la Bourdonnais",
+    "rooms": 53,
+    "latitude": 48.854984,
+    "longitude": 2.3044744,
+    "stars": 4
+  },
+  {
+    "name": "citizenM Paris Charles de Gaulle Airport",
+    "rooms": 230,
+    "latitude": 49.00918,
+    "longitude": 2.5577903,
+    "stars": 4
+  },
+  {
+    "name": "Aparthotel Adagio Paris Malakoff Chatillon",
+    "rooms": 76,
+    "latitude": 48.819714,
+    "longitude": 2.3103104,
+    "stars": 4
+  },
+  {
+    "name": "Citadines Austerlitz Paris",
+    "rooms": 50,
+    "latitude": 48.834915,
+    "longitude": 2.360405,
+    "stars": 3
+  },
+  {
+    "name": "Citadines Place d'Italie Paris",
+    "rooms": 169,
+    "latitude": 48.83063,
+    "longitude": 2.3548803,
+    "stars": 3
+  },
+  {
+    "name": "Residhome Paris Gare de Lyon - Jacqueline de Romilly",
+    "latitude": 48.84191,
+    "longitude": 2.384095,
+    "stars": 3
+  },
+  {
+    "name": "Oceania Paris Porte De Versailles",
+    "rooms": 250,
+    "latitude": 48.830357,
+    "longitude": 2.284353,
+    "stars": 4
+  },
+  {
+    "name": "ibis Styles Paris 16 Boulogne",
+    "rooms": 91,
+    "latitude": 48.83655,
+    "longitude": 2.2535386,
+    "stars": 3
+  },
+  {
+    "name": "Hyatt Regency Paris Etoile",
+    "rooms": 995,
+    "latitude": 48.880665,
+    "longitude": 2.2842684,
+    "stars": 4
+  },
+  {
+    "name": "Citadines R\u00e9publique Paris",
+    "rooms": 76,
+    "latitude": 48.864616,
+    "longitude": 2.3746548,
+    "stars": 3
+  },
+  {
+    "name": "Citadines Saint-Germain-des-Pr\u00e9s Paris",
+    "rooms": 204,
+    "latitude": 48.854927,
+    "longitude": 2.3411553,
+    "stars": 4
+  },
+  {
+    "name": "Citadines Maine Montparnasse Paris",
+    "rooms": 67,
+    "latitude": 48.83922,
+    "longitude": 2.322457,
+    "stars": 3
+  },
+  {
+    "name": "Moxy Paris Bastille",
+    "rooms": 161,
+    "latitude": 48.85753,
+    "longitude": 2.3699396,
+    "stars": 3
+  },
+  {
+    "name": "Citadines Didot Montparnasse",
+    "rooms": 80,
+    "latitude": 48.828094,
+    "longitude": 2.3154376,
+    "stars": 3
+  },
+  {
+    "name": "Citadines Bastille Marais Paris",
+    "rooms": 138,
+    "latitude": 48.85816,
+    "longitude": 2.3709984,
+    "stars": 3
+  },
+  {
+    "name": "Novotel Suites Paris Issy Les Moulineaux",
+    "rooms": 128,
+    "latitude": 48.828934,
+    "longitude": 2.2634625,
+    "stars": 4
+  },
+  {
+    "name": "InterContinental Paris Avenue Marceau  an IHG Hotel",
+    "rooms": 55,
+    "latitude": 48.870617,
+    "longitude": 2.2979612,
+    "stars": 5
+  },
+  {
+    "name": "Zenitude Relais & Spa - Paris Charles de Gaulle",
+    "rooms": 463,
+    "latitude": 49.00047,
+    "longitude": 2.518819,
+    "stars": 4
+  },
+  {
+    "name": "Holiday Inn Express - Paris - CDG Airport  an IHG Hotel",
+    "rooms": 305,
+    "latitude": 49.009727,
+    "longitude": 2.547618,
+    "stars": 3
+  },
+  {
+    "name": "Pullman Paris Montparnasse",
+    "rooms": 957,
+    "latitude": 48.838367,
+    "longitude": 2.3200302,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Paris Bastille Marais",
+    "rooms": 52,
+    "latitude": 48.8571,
+    "longitude": 2.3807476,
+    "stars": 4
+  },
+  {
+    "name": "Best Western Paris CDG Airport",
+    "rooms": 244,
+    "latitude": 49.005936,
+    "longitude": 2.52133,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel Pont Royal",
+    "rooms": 75,
+    "latitude": 48.856667,
+    "longitude": 2.3278437,
+    "stars": 5
+  },
+  {
+    "name": "ibis Paris Bastille Faubourg St Antoine",
+    "rooms": 71,
+    "latitude": 48.85173,
+    "longitude": 2.3787332,
+    "stars": 3
+  },
+  {
+    "name": "citizenM Paris Gare de Lyon",
+    "rooms": 338,
+    "latitude": 48.84372,
+    "longitude": 2.3693292,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel Marais Bastille",
+    "rooms": 37,
+    "latitude": 48.857193,
+    "longitude": 2.3714054,
+    "stars": 3
+  },
+  {
+    "name": "K+K H\u00f4tel Cayr\u00e9 Saint Germain des Pr\u00e9s",
+    "rooms": 125,
+    "latitude": 48.855347,
+    "longitude": 2.32548,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel Napoleon Paris",
+    "rooms": 102,
+    "latitude": 48.87423,
+    "longitude": 2.2980497,
+    "stars": 5
+  },
+  {
+    "name": "Le Tourville Eiffel",
+    "rooms": 30,
+    "latitude": 48.854218,
+    "longitude": 2.3078074,
+    "stars": 4
+  },
+  {
+    "name": "Crowne Plaza Paris - Neuilly  an IHG Hotel",
+    "rooms": 281,
+    "latitude": 48.890316,
+    "longitude": 2.276738,
+    "stars": 4
+  },
+  {
+    "name": "Innside by Melia Paris Charles de Gaulle Airport",
+    "rooms": 277,
+    "latitude": 49.008957,
+    "longitude": 2.5491278,
+    "stars": 4
+  },
+  {
+    "name": "Vice Versa",
+    "rooms": 37,
+    "latitude": 48.83633,
+    "longitude": 2.2897053,
+    "stars": 4
+  },
+  {
+    "name": "Courtyard by Marriott Paris Gare de Lyon",
+    "rooms": 249,
+    "latitude": 48.84511,
+    "longitude": 2.37131,
+    "stars": 4
+  },
+  {
+    "name": "Courtyard by Marriott Paris Boulogne",
+    "rooms": 113,
+    "latitude": 48.840233,
+    "longitude": 2.235369,
+    "stars": 4
+  },
+  {
+    "name": "Fauchon L'H\u00f4tel Paris",
+    "rooms": 54,
+    "latitude": 48.87042,
+    "longitude": 2.323584,
+    "stars": 5
+  },
+  {
+    "name": "H\u00f4tel Gustave",
+    "rooms": 32,
+    "latitude": 48.850082,
+    "longitude": 2.2890308,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Concorde Montparnasse",
+    "rooms": 354,
+    "latitude": 48.837654,
+    "longitude": 2.3182855,
+    "stars": 4
+  },
+  {
+    "name": "Best Western Montcalm",
+    "rooms": 41,
+    "latitude": 48.84087,
+    "longitude": 2.2870958,
+    "stars": 3
+  },
+  {
+    "name": "Holiday Inn Paris Saint Germain des Pr\u00e9s  an IHG Hotel",
+    "rooms": 134,
+    "latitude": 48.84698,
+    "longitude": 2.3258855,
+    "stars": 4
+  },
+  {
+    "name": "Sheraton Paris Roissy Airport",
+    "rooms": 252,
+    "latitude": 49.003952,
+    "longitude": 2.57112,
+    "stars": 4
+  },
+  {
+    "name": "Timhotel Invalides Eiffel",
+    "rooms": 30,
+    "latitude": 48.859386,
+    "longitude": 2.310294,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Ares Eiffel",
+    "rooms": 40,
+    "latitude": 48.850407,
+    "longitude": 2.2981758,
+    "stars": 4
+  },
+  {
+    "name": "La Manufacture",
+    "rooms": 56,
+    "latitude": 48.832935,
+    "longitude": 2.3553445,
+    "stars": 3
+  },
+  {
+    "name": "Le 7 Eiffel Hotel",
+    "rooms": 32,
+    "latitude": 48.85842,
+    "longitude": 2.3077352,
+    "stars": 4
+  },
+  {
+    "name": "Park Hyatt Paris Vendome",
+    "rooms": 153,
+    "latitude": 48.86878,
+    "longitude": 2.3305721,
+    "stars": 5
+  },
+  {
+    "name": "Mercure Paris CDG Airport & Convention",
+    "rooms": 345,
+    "latitude": 49.007423,
+    "longitude": 2.55009,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Paris Alesia",
+    "rooms": 91,
+    "latitude": 48.823658,
+    "longitude": 2.3239517,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Paris Boulogne",
+    "rooms": 191,
+    "latitude": 48.833797,
+    "longitude": 2.256383,
+    "stars": 4
+  },
+  {
+    "name": "Novotel Paris Roissy CDG Convention",
+    "rooms": 295,
+    "latitude": 48.998703,
+    "longitude": 2.5180256,
+    "stars": 4
+  },
+  {
+    "name": "Sofitel Paris Baltimore Tour Eiffel",
+    "rooms": 103,
+    "latitude": 48.866367,
+    "longitude": 2.2894182,
+    "stars": 5
+  },
+  {
+    "name": "Libertel Austerlitz Jardin des Plantes",
+    "rooms": 51,
+    "latitude": 48.842316,
+    "longitude": 2.363246,
+    "stars": 3
+  },
+  {
+    "name": "The Westin Paris - Vend\u00f4me",
+    "rooms": 428,
+    "latitude": 48.865692,
+    "longitude": 2.3275285,
+    "stars": 4
+  },
+  {
+    "name": "Kyriad Hotel XIII Italie Gobelins",
+    "rooms": 58,
+    "latitude": 48.833794,
+    "longitude": 2.3549674,
+    "stars": 3
+  },
+  {
+    "name": "Warwick Paris (Former Warwick Champs-Elysees)",
+    "rooms": 149,
+    "latitude": 48.872086,
+    "longitude": 2.3033376,
+    "stars": 4
+  },
+  {
+    "name": "Derby Alma",
+    "rooms": 33,
+    "latitude": 48.86039,
+    "longitude": 2.3007452,
+    "stars": 4
+  },
+  {
+    "name": "Sofitel Le Scribe Paris Opera",
+    "rooms": 213,
+    "latitude": 48.87063,
+    "longitude": 2.329815,
+    "stars": 5
+  },
+  {
+    "name": "Pullman Paris La D\u00e9fense",
+    "rooms": 382,
+    "latitude": 48.895176,
+    "longitude": 2.2389472,
+    "stars": 5
+  },
+  {
+    "name": "Mercure Paris Gare De Lyon TGV",
+    "rooms": 315,
+    "latitude": 48.844406,
+    "longitude": 2.372723,
+    "stars": 4
+  },
+  {
+    "name": "Les Jardins Du Marais",
+    "rooms": 263,
+    "latitude": 48.86049,
+    "longitude": 2.3679788,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel La Comtesse",
+    "rooms": 40,
+    "latitude": 48.853905,
+    "longitude": 2.3072066,
+    "stars": 4
+  },
+  {
+    "name": "Best Western Plus Maison 46",
+    "rooms": 30,
+    "latitude": 48.845818,
+    "longitude": 2.2984333,
+    "stars": 3
+  },
+  {
+    "name": "Novotel Suites Paris CDG Airport Villepinte",
+    "rooms": 173,
+    "latitude": 48.988777,
+    "longitude": 2.5141418,
+    "stars": 4
+  },
+  {
+    "name": "ibis Paris Gare de Lyon Reuilly",
+    "rooms": 42,
+    "latitude": 48.84938,
+    "longitude": 2.38531,
+    "stars": 3
+  },
+  {
+    "name": "Le Burgundy Paris",
+    "rooms": 59,
+    "latitude": 48.86791,
+    "longitude": 2.3256898,
+    "stars": 5
+  },
+  {
+    "name": "Grand H\u00f4tel Du Palais Royal",
+    "rooms": 68,
+    "latitude": 48.863255,
+    "longitude": 2.3378572,
+    "stars": 5
+  },
+  {
+    "name": "ibis Paris Bastille Opera",
+    "rooms": 305,
+    "latitude": 48.857372,
+    "longitude": 2.37288,
+    "stars": 3
+  },
+  {
+    "name": "ibis Paris CDG Airport",
+    "rooms": 772,
+    "latitude": 49.010788,
+    "longitude": 2.5607157,
+    "stars": 3
+  },
+  {
+    "name": "ibis Paris Alesia Montparnasse",
+    "rooms": 264,
+    "latitude": 48.827503,
+    "longitude": 2.3210363,
+    "stars": 3
+  },
+  {
+    "name": "Citadines Bastille Gare de Lyon Paris",
+    "rooms": 98,
+    "latitude": 48.846237,
+    "longitude": 2.383749,
+    "stars": 3
+  },
+  {
+    "name": "MGallery Nest Paris La D\u00e9fense Ex Sofitel",
+    "rooms": 151,
+    "latitude": 48.888016,
+    "longitude": 2.2472782,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Bastille Speria",
+    "rooms": 42,
+    "latitude": 48.853912,
+    "longitude": 2.3674753,
+    "stars": 3
+  },
+  {
+    "name": "Grand H\u00f4tel Des Gobelins",
+    "rooms": 45,
+    "latitude": 48.837868,
+    "longitude": 2.3557076,
+    "stars": 3
+  },
+  {
+    "name": "Bastille De Launay",
+    "rooms": 36,
+    "latitude": 48.858562,
+    "longitude": 2.3685234,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Du Cadran",
+    "rooms": 41,
+    "latitude": 48.856525,
+    "longitude": 2.3059716,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Saint Dominique",
+    "rooms": 32,
+    "latitude": 48.859825,
+    "longitude": 2.3088078,
+    "stars": 4
+  },
+  {
+    "name": "Courtyard by Marriott Paris Porte de Versailles",
+    "rooms": 350,
+    "latitude": 48.82972,
+    "longitude": 2.2841318,
+    "stars": 4
+  },
+  {
+    "name": "Moxy Paris Charles de Gaulle Airport",
+    "latitude": 49.00731,
+    "longitude": 2.54651,
+    "stars": 3
+  },
+  {
+    "name": "Novotel Paris Charles de Gaulle Airport",
+    "rooms": 201,
+    "latitude": 49.00896,
+    "longitude": 2.5609999,
+    "stars": 4
+  },
+  {
+    "name": "Sofitel Paris Le Faubourg",
+    "rooms": 147,
+    "latitude": 48.867847,
+    "longitude": 2.3211327,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Inn Design Paris Place d\u2019Italie (ex Timhotel)",
+    "rooms": 70,
+    "latitude": 48.831554,
+    "longitude": 2.357435,
+    "stars": 3
+  },
+  {
+    "name": "Hilton Paris La D\u00e9fense",
+    "rooms": 148,
+    "latitude": 48.893036,
+    "longitude": 2.238424,
+    "stars": 4
+  },
+  {
+    "name": "Hilton Paris Charles De Gaulle Airport",
+    "rooms": 392,
+    "latitude": 49.01028,
+    "longitude": 2.5571,
+    "stars": 4
+  },
+  {
+    "name": "ibis Paris Brancion Parc des Expositions 15\u00e8me",
+    "rooms": 71,
+    "latitude": 48.830322,
+    "longitude": 2.301954,
+    "stars": 3
+  },
+  {
+    "name": "ibis Paris Place d\u2019Italie 13\u00e8me",
+    "rooms": 58,
+    "latitude": 48.832714,
+    "longitude": 2.359099,
+    "stars": 3
+  },
+  {
+    "name": "H\u00f4tel du Louvre  in The Unbound Collection by Hyatt",
+    "rooms": 177,
+    "latitude": 48.863003,
+    "longitude": 2.3356595,
+    "stars": 5
+  },
+  {
+    "name": "H\u00f4tel Le Walt",
+    "rooms": 25,
+    "latitude": 48.85475,
+    "longitude": 2.3065188,
+    "stars": 4
+  },
+  {
+    "name": "Le Marquis Eiffel",
+    "rooms": 36,
+    "latitude": 48.851658,
+    "longitude": 2.2978485,
+    "stars": 4
+  },
+  {
+    "name": "Europe Hotel Paris Eiffel",
+    "rooms": 37,
+    "latitude": 48.849567,
+    "longitude": 2.296966,
+    "stars": 3
+  },
+  {
+    "name": "Aparthotel Adagio Paris Montrouge",
+    "rooms": 133,
+    "latitude": 48.819992,
+    "longitude": 2.3112113,
+    "stars": 4
+  },
+  {
+    "name": "H\u00f4tel Lancaster Paris Champs-Elys\u00e9es",
+    "rooms": 56,
+    "latitude": 48.872234,
+    "longitude": 2.3035257,
+    "stars": 5
+  },
+  {
+    "name": "H\u00f4tel Bel Ami",
+    "rooms": 108,
+    "latitude": 48.85486,
+    "longitude": 2.3330605,
+    "stars": 5
+  },
+  {
+    "name": "Novotel Paris Pont De Sevres",
+    "rooms": 131,
+    "latitude": 48.826817,
+    "longitude": 2.221195,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Paris Porte De Versailles Expo",
+    "rooms": 388,
+    "latitude": 48.82702,
+    "longitude": 2.2912958,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Paris Gobelins Place d'Italie",
+    "rooms": 60,
+    "latitude": 48.832073,
+    "longitude": 2.3536854,
+    "stars": 4
+  },
+  {
+    "name": "Ibis Paris Tour Eiffel Cambronne 15\u00e8me",
+    "rooms": 527,
+    "latitude": 48.847004,
+    "longitude": 2.301413,
+    "stars": 3
+  },
+  {
+    "name": "Paris Marriott Charles de Gaulle Airport Hotel",
+    "rooms": 300,
+    "latitude": 49.003445,
+    "longitude": 2.521223,
+    "stars": 4
+  },
+  {
+    "name": "Paris Marriott Champs Elysees Hotel",
+    "rooms": 192,
+    "latitude": 48.871128,
+    "longitude": 2.3050368,
+    "stars": 5
+  },
+  {
+    "name": "Renaissance Paris La Defense Hotel",
+    "rooms": 330,
+    "latitude": 48.892563,
+    "longitude": 2.2328458,
+    "stars": 4
+  },
+  {
+    "name": "Hotel & Spa La Belle Juliette",
+    "rooms": 34,
+    "latitude": 48.847576,
+    "longitude": 2.3224156,
+    "stars": 4
+  },
+  {
+    "name": "Radisson Blu Champs-Elys\u00e9es  Paris",
+    "rooms": 46,
+    "latitude": 48.87197,
+    "longitude": 2.296867,
+    "stars": 5
+  },
+  {
+    "name": "Radisson Blu Paris-Boulogne",
+    "rooms": 170,
+    "latitude": 48.836266,
+    "longitude": 2.252766,
+    "stars": 4
+  },
+  {
+    "name": "Hyatt Paris Madeleine",
+    "rooms": 85,
+    "latitude": 48.872902,
+    "longitude": 2.3217094,
+    "stars": 5
+  },
+  {
+    "name": "Hyatt Place Paris Charles de Gaulle Airport",
+    "rooms": 309,
+    "latitude": 48.98617,
+    "longitude": 2.5104854,
+    "stars": 4
+  },
+  {
+    "name": "Hyatt House Paris Charles de Gaulle Airport",
+    "rooms": 121,
+    "latitude": 48.98617,
+    "longitude": 2.5104854,
+    "stars": 4
+  },
+  {
+    "name": "Renaissance Paris Vendome Hotel",
+    "rooms": 97,
+    "latitude": 48.865437,
+    "longitude": 2.329497,
+    "stars": 5
+  },
+  {
+    "name": "Molitor Paris - MGallery",
+    "rooms": 124,
+    "latitude": 48.84528,
+    "longitude": 2.2554643,
+    "stars": 5
+  },
+  {
+    "name": "H\u00f4tel Vernet Champs Elys\u00e9es Paris",
+    "rooms": 50,
+    "latitude": 48.872013,
+    "longitude": 2.2979572,
+    "stars": 5
+  },
+  {
+    "name": "Holiday Inn Paris CDG Airport an IHG Hotel",
+    "rooms": 250,
+    "latitude": 49.008514,
+    "longitude": 2.5145087,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Villa Saxe Eiffel",
+    "rooms": 47,
+    "latitude": 48.84972,
+    "longitude": 2.3097482,
+    "stars": 4
+  }
+]

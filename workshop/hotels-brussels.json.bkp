@@ -1,0 +1,596 @@
+[
+  {
+    "name": "Hotel Saint Nicolas",
+    "rooms": 118,
+    "latitude": 50.84873,
+    "longitude": 4.3510017,
+    "stars": 3
+  },
+  {
+    "name": "Thon Hotel Bristol Stephanie",
+    "rooms": 142,
+    "latitude": 50.831528,
+    "longitude": 4.3589797,
+    "stars": 4
+  },
+  {
+    "name": "First Euroflat Hotel",
+    "rooms": 133,
+    "latitude": 50.84486,
+    "longitude": 4.382111,
+    "stars": 4
+  },
+  {
+    "name": "The President Brussels Hotel",
+    "rooms": 297,
+    "latitude": 50.86477,
+    "longitude": 4.358973,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Queen Anne",
+    "rooms": 60,
+    "latitude": 50.854687,
+    "longitude": 4.354348,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Le Plaza Brussels",
+    "rooms": 189,
+    "latitude": 50.8545,
+    "longitude": 4.3565135,
+    "stars": 5
+  },
+  {
+    "name": "Newhotel Charlemagne",
+    "rooms": 68,
+    "latitude": 50.845184,
+    "longitude": 4.3826704,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Le Dome",
+    "rooms": 125,
+    "latitude": 50.855286,
+    "longitude": 4.357431,
+    "stars": 4
+  },
+  {
+    "name": "Jam Hotel",
+    "rooms": 79,
+    "latitude": 50.827126,
+    "longitude": 4.3551955,
+    "stars": 3
+  },
+  {
+    "name": "Vintage Hotel Brussels",
+    "rooms": 29,
+    "latitude": 50.833473,
+    "longitude": 4.3556166,
+    "stars": 3
+  },
+  {
+    "name": "NH Brussels Louise",
+    "rooms": 246,
+    "latitude": 50.832943,
+    "longitude": 4.3568745,
+    "stars": 4
+  },
+  {
+    "name": "DoubleTree By Hilton Brussels City",
+    "rooms": 354,
+    "latitude": 50.855305,
+    "longitude": 4.3606014,
+    "stars": 4
+  },
+  {
+    "name": "Novotel Brussels Airport",
+    "rooms": 209,
+    "latitude": 50.892963,
+    "longitude": 4.4620748,
+    "stars": 3
+  },
+  {
+    "name": "NH Collection Brussels Centre",
+    "rooms": 241,
+    "latitude": 50.852222,
+    "longitude": 4.3541613,
+    "stars": 4
+  },
+  {
+    "name": "Bedford Hotel & Congress Centre",
+    "rooms": 326,
+    "latitude": 50.844196,
+    "longitude": 4.347405,
+    "stars": 3
+  },
+  {
+    "name": "pentahotel Brussels City Centre",
+    "rooms": 202,
+    "latitude": 50.83097,
+    "longitude": 4.3564305,
+    "stars": 4
+  },
+  {
+    "name": "Gresham Belson Hotel Brussels",
+    "rooms": 135,
+    "latitude": 50.85931,
+    "longitude": 4.414054,
+    "stars": 4
+  },
+  {
+    "name": "NH Brussels EU Berlaymont",
+    "rooms": 212,
+    "latitude": 50.844864,
+    "longitude": 4.3825135,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Indigo Brussels - City  an IHG Hotel",
+    "rooms": 283,
+    "latitude": 50.855713,
+    "longitude": 4.3596787,
+    "stars": 4
+  },
+  {
+    "name": "Aris Grand Place Hotel",
+    "rooms": 55,
+    "latitude": 50.847164,
+    "longitude": 4.353837,
+    "stars": 3
+  },
+  {
+    "name": "Holiday Inn Hotel Brussels Airport  an IHG Hotel",
+    "rooms": 310,
+    "latitude": 50.884422,
+    "longitude": 4.442111,
+    "stars": 4
+  },
+  {
+    "name": "Sheraton Brussels Airport Hotel",
+    "rooms": 294,
+    "latitude": 50.897205,
+    "longitude": 4.4830656,
+    "stars": 4
+  },
+  {
+    "name": "Ibis Brussels City Centre",
+    "rooms": 236,
+    "latitude": 50.85043,
+    "longitude": 4.3494515,
+    "stars": 3
+  },
+  {
+    "name": "NH Brussels Carrefour de L\u2019Europe",
+    "rooms": 65,
+    "latitude": 50.846336,
+    "longitude": 4.3553658,
+    "stars": 4
+  },
+  {
+    "name": "Rocco Forte Hotel Amigo",
+    "rooms": 173,
+    "latitude": 50.846096,
+    "longitude": 4.351388,
+    "stars": 5
+  },
+  {
+    "name": "Novotel Brussels City Centre",
+    "rooms": 217,
+    "latitude": 50.850704,
+    "longitude": 4.350012,
+    "stars": 4
+  },
+  {
+    "name": "NH Brussels Grand Place Arenberg",
+    "rooms": 155,
+    "latitude": 50.848473,
+    "longitude": 4.357447,
+    "stars": 4
+  },
+  {
+    "name": "Thon Hotel Brussels City Centre",
+    "rooms": 454,
+    "latitude": 50.855865,
+    "longitude": 4.357297,
+    "stars": 4
+  },
+  {
+    "name": "Thon Hotel Brussels Airport",
+    "rooms": 100,
+    "latitude": 50.884586,
+    "longitude": 4.4441576,
+    "stars": 3
+  },
+  {
+    "name": "Warwick Brussels - Grand Place",
+    "rooms": 267,
+    "latitude": 50.84514,
+    "longitude": 4.354407,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Le Ch\u00e2telain",
+    "rooms": 107,
+    "latitude": 50.826103,
+    "longitude": 4.363769,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Des Colonies",
+    "rooms": 97,
+    "latitude": 50.85641,
+    "longitude": 4.358093,
+    "stars": 3
+  },
+  {
+    "name": "Eurostars Montgomery",
+    "rooms": 63,
+    "latitude": 50.83814,
+    "longitude": 4.407124,
+    "stars": 5
+  },
+  {
+    "name": "Courtyard by Marriott Brussels EU",
+    "rooms": 144,
+    "latitude": 50.84603,
+    "longitude": 4.371786,
+    "stars": 4
+  },
+  {
+    "name": "Sofitel Brussels Le Louise",
+    "rooms": 169,
+    "latitude": 50.836227,
+    "longitude": 4.3571897,
+    "stars": 5
+  },
+  {
+    "name": "Mercure Hotel Brussels Airport",
+    "rooms": 120,
+    "latitude": 50.874172,
+    "longitude": 4.4132576,
+    "stars": 3
+  },
+  {
+    "name": "nhow Brussels Bloom",
+    "rooms": 305,
+    "latitude": 50.855167,
+    "longitude": 4.366521,
+    "stars": 4
+  },
+  {
+    "name": "Stanhope Hotel by Thon Hotels",
+    "rooms": 125,
+    "latitude": 50.83966,
+    "longitude": 4.3673325,
+    "stars": 5
+  },
+  {
+    "name": "ibis Hotel Brussels Airport",
+    "rooms": 98,
+    "latitude": 50.881413,
+    "longitude": 4.437181,
+    "stars": 3
+  },
+  {
+    "name": "ibis Hotel Brussels off Grand'Place",
+    "rooms": 184,
+    "latitude": 50.846752,
+    "longitude": 4.355269,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Barsey by Warwick",
+    "rooms": 99,
+    "latitude": 50.820446,
+    "longitude": 4.370048,
+    "stars": 4
+  },
+  {
+    "name": "Leopold Hotel Brussels EU",
+    "rooms": 107,
+    "latitude": 50.839497,
+    "longitude": 4.370831,
+    "stars": 4
+  },
+  {
+    "name": "The Hotel Brussels",
+    "rooms": 421,
+    "latitude": 50.837177,
+    "longitude": 4.3575273,
+    "stars": 4
+  },
+  {
+    "name": "Holiday Inn Brussels Schuman  an IHG Hotel",
+    "rooms": 62,
+    "latitude": 50.840725,
+    "longitude": 4.383821,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Agenda Louise",
+    "rooms": 38,
+    "latitude": 50.829525,
+    "longitude": 4.360087,
+    "stars": 3
+  },
+  {
+    "name": "NH Brussels Airport",
+    "rooms": 234,
+    "latitude": 50.88929,
+    "longitude": 4.4470086,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Made In Louise",
+    "rooms": 48,
+    "latitude": 50.829144,
+    "longitude": 4.357897,
+    "stars": 3
+  },
+  {
+    "name": "9Hotel Central",
+    "rooms": 47,
+    "latitude": 50.846523,
+    "longitude": 4.3592515,
+    "stars": 3
+  },
+  {
+    "name": "NH Collection Brussels Grand Sablon",
+    "rooms": 193,
+    "latitude": 50.84085,
+    "longitude": 4.3558,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Novotel Brussels Off Grand Place",
+    "rooms": 140,
+    "latitude": 50.846302,
+    "longitude": 4.3549795,
+    "stars": 4
+  },
+  {
+    "name": "B-aparthotel Ambiorix",
+    "rooms": 63,
+    "latitude": 50.846172,
+    "longitude": 4.3844943,
+    "stars": 4
+  },
+  {
+    "name": "The Dominican",
+    "rooms": 150,
+    "latitude": 50.849083,
+    "longitude": 4.3544593,
+    "stars": 4
+  },
+  {
+    "name": "Radisson Collection Grand Place Brussels",
+    "rooms": 281,
+    "latitude": 50.849663,
+    "longitude": 4.3564277,
+    "stars": 5
+  },
+  {
+    "name": "Crowne Plaza Brussels Airport  an IHG Hotel",
+    "rooms": 315,
+    "latitude": 50.891155,
+    "longitude": 4.4591618,
+    "stars": 4
+  },
+  {
+    "name": "Martin's Brussels EU",
+    "rooms": 100,
+    "latitude": 50.845596,
+    "longitude": 4.382356,
+    "stars": 4
+  },
+  {
+    "name": "Progress Hotel",
+    "rooms": 57,
+    "latitude": 50.8566,
+    "longitude": 4.3586807,
+    "stars": 4
+  },
+  {
+    "name": "Sofitel Brussels Europe",
+    "rooms": 149,
+    "latitude": 50.837658,
+    "longitude": 4.3812246,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Hubert Grand Place",
+    "rooms": 100,
+    "latitude": 50.84832,
+    "longitude": 4.356231,
+    "stars": 4
+  },
+  {
+    "name": "Pentahotel Brussels Airport",
+    "rooms": 87,
+    "latitude": 50.884583,
+    "longitude": 4.4443884,
+    "stars": 3
+  },
+  {
+    "name": "Hilton Brussels Grand Place",
+    "rooms": 224,
+    "latitude": 50.8459,
+    "longitude": 4.355977,
+    "stars": 4
+  },
+  {
+    "name": "Pillows City Hotel Brussels Centre",
+    "rooms": 70,
+    "latitude": 50.847095,
+    "longitude": 4.3594747,
+    "stars": 4
+  },
+  {
+    "name": "Radisson RED Brussels",
+    "rooms": 149,
+    "latitude": 50.837452,
+    "longitude": 4.372222,
+    "stars": 4
+  },
+  {
+    "name": "Hygge Hotel",
+    "rooms": 50,
+    "latitude": 50.834965,
+    "longitude": 4.359374,
+    "stars": 3
+  },
+  {
+    "name": "Park Inn By Radisson Brussels Airport",
+    "rooms": 162,
+    "latitude": 50.88403,
+    "longitude": 4.448979,
+    "stars": 3
+  },
+  {
+    "name": "Marivaux Hotel",
+    "rooms": 96,
+    "latitude": 50.853874,
+    "longitude": 4.35578,
+    "stars": 4
+  },
+  {
+    "name": "Yadoya Hotel",
+    "rooms": 73,
+    "latitude": 50.857143,
+    "longitude": 4.3508797,
+    "stars": 3
+  },
+  {
+    "name": "Courtyard By Marriott Brussels",
+    "rooms": 191,
+    "latitude": 50.86999,
+    "longitude": 4.405319,
+    "stars": 4
+  },
+  {
+    "name": "Renaissance Brussels Hotel",
+    "rooms": 262,
+    "latitude": 50.838066,
+    "longitude": 4.3717766,
+    "stars": 4
+  },
+  {
+    "name": "Brussels Marriott Hotel Grand Place",
+    "rooms": 221,
+    "latitude": 50.84871,
+    "longitude": 4.3480754,
+    "stars": 4
+  },
+  {
+    "name": "B-aparthotel Montgomery",
+    "rooms": 34,
+    "latitude": 50.837418,
+    "longitude": 4.4061184,
+    "stars": 4
+  },
+  {
+    "name": "MEININGER Hotels Bruxelles City Center",
+    "rooms": 150,
+    "latitude": 50.851414,
+    "longitude": 4.3388863,
+    "stars": 3
+  },
+  {
+    "name": "Van der Valk Hotel Brussels Airport",
+    "rooms": 224,
+    "latitude": 50.887604,
+    "longitude": 4.452606,
+    "stars": 4
+  },
+  {
+    "name": "Harmon House",
+    "rooms": 27,
+    "latitude": 50.83068,
+    "longitude": 4.35646,
+    "stars": 4
+  },
+  {
+    "name": "Aparthotel Adagio Access Bruxelles Europe Aparthotel",
+    "rooms": 110,
+    "latitude": 50.841904,
+    "longitude": 4.369479,
+    "stars": 2
+  },
+  {
+    "name": "Thon Hotel EU",
+    "rooms": 405,
+    "latitude": 50.843964,
+    "longitude": 4.37563,
+    "stars": 4
+  },
+  {
+    "name": "Pillows Grand Boutique Hotel Place Rouppe Brussels",
+    "rooms": 43,
+    "latitude": 50.84238,
+    "longitude": 4.346093,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Siru",
+    "rooms": 101,
+    "latitude": 50.856323,
+    "longitude": 4.3583803,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Park Inn by Radisson Brussels Midi",
+    "rooms": 142,
+    "latitude": 50.835384,
+    "longitude": 4.3382907,
+    "stars": 3
+  },
+  {
+    "name": "Aloft Brussels Schuman",
+    "rooms": 150,
+    "latitude": 50.84054,
+    "longitude": 4.380777,
+    "stars": 4
+  },
+  {
+    "name": "Aqua Hotel Brussels",
+    "rooms": 97,
+    "latitude": 50.836525,
+    "longitude": 4.3606443,
+    "stars": 3
+  },
+  {
+    "name": "Motel One Brussels",
+    "rooms": 489,
+    "latitude": 50.848686,
+    "longitude": 4.363129,
+    "stars": 3
+  },
+  {
+    "name": "Juliana Hotel Brussels",
+    "latitude": 50.851593,
+    "longitude": 4.355723,
+    "stars": 5
+  },
+  {
+    "name": "B&B H\u00f4tel Brussels Centre Louise",
+    "rooms": 148,
+    "latitude": 50.828136,
+    "longitude": 4.36487,
+    "stars": 4
+  },
+  {
+    "name": "Marriott Executive Apartments Brussels",
+    "rooms": 50,
+    "latitude": 50.838455,
+    "longitude": 4.3711276,
+    "stars": 4
+  },
+  {
+    "name": "Steigenberger Wiltcher's",
+    "rooms": 267,
+    "latitude": 50.832497,
+    "longitude": 4.357557,
+    "stars": 5
+  }
+]

@@ -1,0 +1,853 @@
+[
+  {
+    "name": "Catalonia Vondel Amsterdam",
+    "rooms": 86,
+    "latitude": 52.36257,
+    "longitude": 4.878113,
+    "stars": 4
+  },
+  {
+    "name": "Apollo Hotel Amsterdam  a Tribute Portfolio Hotel",
+    "rooms": 223,
+    "latitude": 52.34857,
+    "longitude": 4.885107,
+    "stars": 4
+  },
+  {
+    "name": "INK Hotel Amsterdam - MGallery",
+    "rooms": 149,
+    "latitude": 52.375565,
+    "longitude": 4.8928976,
+    "stars": 4
+  },
+  {
+    "name": "Leonardo Boutique Museumhotel",
+    "rooms": 188,
+    "latitude": 52.36125,
+    "longitude": 4.8841596,
+    "stars": 3
+  },
+  {
+    "name": "Leonardo Hotel Amsterdam City Center",
+    "rooms": 102,
+    "latitude": 52.36214,
+    "longitude": 4.878341,
+    "stars": 3
+  },
+  {
+    "name": "Conscious Hotel Museum Square",
+    "rooms": 36,
+    "latitude": 52.355415,
+    "longitude": 4.878123,
+    "stars": 4
+  },
+  {
+    "name": "Inntel Hotels Amsterdam Centre",
+    "rooms": 239,
+    "latitude": 52.376186,
+    "longitude": 4.894449,
+    "stars": 4
+  },
+  {
+    "name": "Jan Luyken Hotel Amsterdam",
+    "rooms": 62,
+    "latitude": 52.35976,
+    "longitude": 4.881072,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Amsterdam De Roode Leeuw",
+    "rooms": 79,
+    "latitude": 52.373684,
+    "longitude": 4.893625,
+    "stars": 4
+  },
+  {
+    "name": "Nova Hotel",
+    "rooms": 61,
+    "latitude": 52.371235,
+    "longitude": 4.890131,
+    "stars": 3
+  },
+  {
+    "name": "NH Collection Amsterdam Barbizon Palace",
+    "rooms": 274,
+    "latitude": 52.376457,
+    "longitude": 4.9002457,
+    "stars": 5
+  },
+  {
+    "name": "NH Amsterdam Centre",
+    "rooms": 232,
+    "latitude": 52.363102,
+    "longitude": 4.879509,
+    "stars": 4
+  },
+  {
+    "name": "Mercure Hotel Amsterdam Centre Canal District",
+    "rooms": 93,
+    "latitude": 52.360943,
+    "longitude": 4.8934464,
+    "stars": 4
+  },
+  {
+    "name": "NH Collection Amsterdam Grand Hotel Krasnapolsky",
+    "rooms": 468,
+    "latitude": 52.372696,
+    "longitude": 4.894262,
+    "stars": 5
+  },
+  {
+    "name": "Bastion Hotel Amsterdam Amstel",
+    "rooms": 192,
+    "latitude": 52.333736,
+    "longitude": 4.927929,
+    "stars": 3
+  },
+  {
+    "name": "De L\u2019Europe Amsterdam \u2013 The Leading Hotels of the World",
+    "rooms": 111,
+    "latitude": 52.367638,
+    "longitude": 4.894205,
+    "stars": 5
+  },
+  {
+    "name": "Park Centraal Amsterdam",
+    "rooms": 189,
+    "latitude": 52.36159,
+    "longitude": 4.8830256,
+    "stars": 4
+  },
+  {
+    "name": "Best Western Amsterdam",
+    "rooms": 232,
+    "latitude": 52.348904,
+    "longitude": 4.8424253,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Arena",
+    "rooms": 116,
+    "latitude": 52.360992,
+    "longitude": 4.9157906,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Esther\u00e9a",
+    "rooms": 71,
+    "latitude": 52.370472,
+    "longitude": 4.8884907,
+    "stars": 4
+  },
+  {
+    "name": "Ibis Schiphol Amsterdam Airport",
+    "rooms": 644,
+    "latitude": 52.324913,
+    "longitude": 4.79388,
+    "stars": 3
+  },
+  {
+    "name": "Albus Hotel Amsterdam City Centre",
+    "rooms": 75,
+    "latitude": 52.365814,
+    "longitude": 4.893143,
+    "stars": 4
+  },
+  {
+    "name": "NH Collection Amsterdam Flower Market",
+    "rooms": 218,
+    "latitude": 52.366463,
+    "longitude": 4.893084,
+    "stars": 4
+  },
+  {
+    "name": "Singel Hotel Amsterdam",
+    "rooms": 32,
+    "latitude": 52.377815,
+    "longitude": 4.893343,
+    "stars": 3
+  },
+  {
+    "name": "Holiday Inn Express Amsterdam Arena Towers  an IHG Hotel",
+    "rooms": 323,
+    "latitude": 52.309578,
+    "longitude": 4.9418697,
+    "stars": 3
+  },
+  {
+    "name": "ibis Amsterdam Centre",
+    "rooms": 363,
+    "latitude": 52.379543,
+    "longitude": 4.8969655,
+    "stars": 3
+  },
+  {
+    "name": "NH Amsterdam Schiphol Airport",
+    "rooms": 419,
+    "latitude": 52.28969,
+    "longitude": 4.7248855,
+    "stars": 4
+  },
+  {
+    "name": "NH City Centre Amsterdam",
+    "rooms": 213,
+    "latitude": 52.36972,
+    "longitude": 4.8887777,
+    "stars": 4
+  },
+  {
+    "name": "NH Amsterdam Schiller",
+    "rooms": 92,
+    "latitude": 52.36575,
+    "longitude": 4.8966956,
+    "stars": 4
+  },
+  {
+    "name": "NH Amsterdam Caransa",
+    "rooms": 66,
+    "latitude": 52.36645,
+    "longitude": 4.896921,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Okura Amsterdam \u2013 The Leading Hotels of the World",
+    "rooms": 300,
+    "latitude": 52.348454,
+    "longitude": 4.8928103,
+    "stars": 5
+  },
+  {
+    "name": "Kimpton De Witt Amsterdam  an IHG Hotel",
+    "rooms": 274,
+    "latitude": 52.377197,
+    "longitude": 4.8955393,
+    "stars": 5
+  },
+  {
+    "name": "Pulitzer Amsterdam",
+    "rooms": 225,
+    "latitude": 52.37282,
+    "longitude": 4.883282,
+    "stars": 5
+  },
+  {
+    "name": "Park Plaza Vondelpark Amsterdam",
+    "rooms": 138,
+    "latitude": 52.35425,
+    "longitude": 4.8664255,
+    "stars": 4
+  },
+  {
+    "name": "WestCord City Centre Hotel",
+    "rooms": 106,
+    "latitude": 52.37648,
+    "longitude": 4.893661,
+    "stars": 3
+  },
+  {
+    "name": "Sofitel Legend The Grand Amsterdam",
+    "rooms": 177,
+    "latitude": 52.371197,
+    "longitude": 4.8954,
+    "stars": 5
+  },
+  {
+    "name": "Swiss\u00f4tel Amsterdam",
+    "rooms": 111,
+    "latitude": 52.3735,
+    "longitude": 4.893312,
+    "stars": 4
+  },
+  {
+    "name": "Sheraton Amsterdam Airport Hotel and Conference Center",
+    "rooms": 407,
+    "latitude": 52.30903,
+    "longitude": 4.759939,
+    "stars": 4
+  },
+  {
+    "name": "Holiday Inn Amsterdam",
+    "rooms": 264,
+    "latitude": 52.33515,
+    "longitude": 4.888282,
+    "stars": 4
+  },
+  {
+    "name": "Avenue Hotel",
+    "rooms": 82,
+    "latitude": 52.376637,
+    "longitude": 4.894656,
+    "stars": 3
+  },
+  {
+    "name": "Prinsengracht Hotel",
+    "rooms": 34,
+    "latitude": 52.361984,
+    "longitude": 4.894481,
+    "stars": 3
+  },
+  {
+    "name": "Hilton Amsterdam",
+    "rooms": 271,
+    "latitude": 52.351295,
+    "longitude": 4.8720636,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Prins Hendrik",
+    "rooms": 45,
+    "latitude": 52.376514,
+    "longitude": 4.899699,
+    "stars": 3
+  },
+  {
+    "name": "Multatuli Hotel",
+    "rooms": 29,
+    "latitude": 52.378925,
+    "longitude": 4.8955536,
+    "stars": 3
+  },
+  {
+    "name": "Volkshotel",
+    "rooms": 172,
+    "latitude": 52.35371,
+    "longitude": 4.911916,
+    "stars": 3
+  },
+  {
+    "name": "Radisson Blu Hotel  Amsterdam City Center",
+    "rooms": 252,
+    "latitude": 52.370136,
+    "longitude": 4.8967013,
+    "stars": 4
+  },
+  {
+    "name": "Renaissance Amsterdam Hotel",
+    "rooms": 402,
+    "latitude": 52.377815,
+    "longitude": 4.894361,
+    "stars": 5
+  },
+  {
+    "name": "Radisson Blu Hotel Amsterdam Airport  Schiphol",
+    "rooms": 281,
+    "latitude": 52.27892,
+    "longitude": 4.7501626,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Nicolaas Witsen",
+    "rooms": 29,
+    "latitude": 52.35894,
+    "longitude": 4.8962445,
+    "stars": 3
+  },
+  {
+    "name": "WestCord Art Hotel Amsterdam 3 stars",
+    "rooms": 191,
+    "latitude": 52.392807,
+    "longitude": 4.868785,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Sint Nicolaas",
+    "rooms": 27,
+    "latitude": 52.377567,
+    "longitude": 4.8950906,
+    "stars": 3
+  },
+  {
+    "name": "Eden hotel Amsterdam",
+    "rooms": 218,
+    "latitude": 52.36691,
+    "longitude": 4.8987303,
+    "stars": 4
+  },
+  {
+    "name": "Max Brown Hotel Museum Square",
+    "rooms": 64,
+    "latitude": 52.36,
+    "longitude": 4.8820467,
+    "stars": 3
+  },
+  {
+    "name": "ibis Styles Amsterdam Central Station",
+    "rooms": 77,
+    "latitude": 52.378025,
+    "longitude": 4.8965993,
+    "stars": 3
+  },
+  {
+    "name": "The College Hotel",
+    "rooms": 40,
+    "latitude": 52.352764,
+    "longitude": 4.883612,
+    "stars": 4
+  },
+  {
+    "name": "Lloyd Hotel",
+    "rooms": 117,
+    "latitude": 52.37433,
+    "longitude": 4.934803,
+    "stars": 3
+  },
+  {
+    "name": "Pillows Luxury Boutique Hotel Anna Van Den Vondel Amsterdam",
+    "rooms": 38,
+    "latitude": 52.360764,
+    "longitude": 4.869574,
+    "stars": 4
+  },
+  {
+    "name": "Quentin Amsterdam Hotel",
+    "rooms": 50,
+    "latitude": 52.364246,
+    "longitude": 4.879909,
+    "stars": 3
+  },
+  {
+    "name": "ibis Amsterdam City West",
+    "rooms": 180,
+    "latitude": 52.39225,
+    "longitude": 4.8501043,
+    "stars": 3
+  },
+  {
+    "name": "XO Hotels City Centre",
+    "rooms": 110,
+    "latitude": 52.375046,
+    "longitude": 4.8970084,
+    "stars": 3
+  },
+  {
+    "name": "Novotel Amsterdam Schiphol Airport",
+    "rooms": 314,
+    "latitude": 52.29156,
+    "longitude": 4.699509,
+    "stars": 4
+  },
+  {
+    "name": "Amsterdam Teleport Hotel",
+    "rooms": 142,
+    "latitude": 52.38548,
+    "longitude": 4.8328586,
+    "stars": 3
+  },
+  {
+    "name": "Mercure Amsterdam Sloterdijk Station",
+    "rooms": 172,
+    "latitude": 52.387913,
+    "longitude": 4.834296,
+    "stars": 4
+  },
+  {
+    "name": "The Student Hotel Amsterdam City",
+    "rooms": 200,
+    "latitude": 52.354595,
+    "longitude": 4.912632,
+    "stars": 4
+  },
+  {
+    "name": "W Amsterdam",
+    "rooms": 238,
+    "latitude": 52.372787,
+    "longitude": 4.890006,
+    "stars": 5
+  },
+  {
+    "name": "Hotel Asterisk Annex 2 Stars",
+    "rooms": 21,
+    "latitude": 52.358807,
+    "longitude": 4.8939376,
+    "stars": 2
+  },
+  {
+    "name": "Hilton Amsterdam Airport Schiphol",
+    "rooms": 433,
+    "latitude": 52.307026,
+    "longitude": 4.755927,
+    "stars": 4
+  },
+  {
+    "name": "a&o Amsterdam Zuidoost",
+    "rooms": 353,
+    "latitude": 52.307083,
+    "longitude": 4.9497366,
+    "stars": 2
+  },
+  {
+    "name": "citizenM Schiphol Airport",
+    "rooms": 355,
+    "latitude": 52.309338,
+    "longitude": 4.7559133,
+    "stars": 4
+  },
+  {
+    "name": "Qbic Hotel WTC Amsterdam",
+    "rooms": 82,
+    "latitude": 52.340267,
+    "longitude": 4.873488,
+    "stars": 3
+  },
+  {
+    "name": "NH Amsterdam Zuid",
+    "rooms": 213,
+    "latitude": 52.32667,
+    "longitude": 4.879955,
+    "stars": 4
+  },
+  {
+    "name": "Hampton by Hilton Amsterdam Centre East",
+    "rooms": 75,
+    "latitude": 52.371334,
+    "longitude": 4.934809,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Casa Amsterdam",
+    "rooms": 151,
+    "latitude": 52.34989,
+    "longitude": 4.9188895,
+    "stars": 3
+  },
+  {
+    "name": "Hotel CC",
+    "rooms": 81,
+    "latitude": 52.375637,
+    "longitude": 4.8984914,
+    "stars": 3
+  },
+  {
+    "name": "Generator Amsterdam",
+    "rooms": 168,
+    "latitude": 52.360992,
+    "longitude": 4.9190364,
+    "stars": 3
+  },
+  {
+    "name": "Amsterdam Marriott Hotel",
+    "rooms": 396,
+    "latitude": 52.36266,
+    "longitude": 4.8796625,
+    "stars": 5
+  },
+  {
+    "name": "Element Amsterdam",
+    "rooms": 160,
+    "latitude": 52.331802,
+    "longitude": 4.8775,
+    "stars": 4
+  },
+  {
+    "name": "The Hoxton  Amsterdam",
+    "rooms": 111,
+    "latitude": 52.371567,
+    "longitude": 4.887334,
+    "stars": 4
+  },
+  {
+    "name": "Motel One Amsterdam",
+    "rooms": 320,
+    "latitude": 52.338978,
+    "longitude": 4.892575,
+    "stars": 3
+  },
+  {
+    "name": "XO Hotels Blue Square",
+    "rooms": 175,
+    "latitude": 52.378586,
+    "longitude": 4.8205585,
+    "stars": 3
+  },
+  {
+    "name": "Boutique Hotel Notting Hill",
+    "rooms": 71,
+    "latitude": 52.358406,
+    "longitude": 4.898921,
+    "stars": 4
+  },
+  {
+    "name": "citizenM Amsterdam South",
+    "rooms": 215,
+    "latitude": 52.341843,
+    "longitude": 4.875937,
+    "stars": 4
+  },
+  {
+    "name": "Joy Hotel",
+    "rooms": 122,
+    "latitude": 52.304844,
+    "longitude": 4.9483433,
+    "stars": 3
+  },
+  {
+    "name": "Conscious Hotel Vondelpark",
+    "rooms": 81,
+    "latitude": 52.35786,
+    "longitude": 4.8565097,
+    "stars": 3
+  },
+  {
+    "name": "Park Inn by Radisson Amsterdam City West",
+    "rooms": 476,
+    "latitude": 52.39019,
+    "longitude": 4.84177,
+    "stars": 4
+  },
+  {
+    "name": "easyHotel Amsterdam Arena Boulevard",
+    "rooms": 131,
+    "latitude": 52.313244,
+    "longitude": 4.944774,
+    "stars": 2
+  },
+  {
+    "name": "Sir Adam Hotel",
+    "rooms": 108,
+    "latitude": 52.38413,
+    "longitude": 4.902768,
+    "stars": 4
+  },
+  {
+    "name": "ibis budget Amsterdam City South",
+    "rooms": 314,
+    "latitude": 52.316685,
+    "longitude": 4.871878,
+    "stars": 2
+  },
+  {
+    "name": "Conscious Hotel The Tire Station",
+    "rooms": 112,
+    "latitude": 52.357212,
+    "longitude": 4.8554497,
+    "stars": 3
+  },
+  {
+    "name": "WestCord Fashion Hotel Amsterdam",
+    "rooms": 260,
+    "latitude": 52.357548,
+    "longitude": 4.8441687,
+    "stars": 4
+  },
+  {
+    "name": "Van der Valk Hotel Amsterdam - Amstel",
+    "rooms": 206,
+    "latitude": 52.333305,
+    "longitude": 4.914512,
+    "stars": 4
+  },
+  {
+    "name": "Conservatorium Hotel",
+    "rooms": 129,
+    "latitude": 52.358585,
+    "longitude": 4.878488,
+    "stars": 5
+  },
+  {
+    "name": "Holiday Inn Express Amsterdam - Sloterdijk Station  an IHG Hotel",
+    "rooms": 254,
+    "latitude": 52.388203,
+    "longitude": 4.8374553,
+    "stars": 3
+  },
+  {
+    "name": "Crowne Plaza Amsterdam - South  an IHG Hotel",
+    "rooms": 207,
+    "latitude": 52.335804,
+    "longitude": 4.8745475,
+    "stars": 4
+  },
+  {
+    "name": "Corendon Village Hotel Amsterdam",
+    "rooms": 680,
+    "latitude": 52.328697,
+    "longitude": 4.786134,
+    "stars": 4
+  },
+  {
+    "name": "Hotel JL No76",
+    "rooms": 39,
+    "latitude": 52.359505,
+    "longitude": 4.8800955,
+    "stars": 4
+  },
+  {
+    "name": "Hotel van de Vijsel",
+    "rooms": 82,
+    "latitude": 52.36338,
+    "longitude": 4.8781343,
+    "stars": 4
+  },
+  {
+    "name": "MEININGER Hotel Amsterdam City West",
+    "rooms": 219,
+    "latitude": 52.39059,
+    "longitude": 4.837452,
+    "stars": 3
+  },
+  {
+    "name": "Hotel Iron Horse Leidse Square",
+    "rooms": 42,
+    "latitude": 52.36325,
+    "longitude": 4.8776197,
+    "stars": 3
+  },
+  {
+    "name": "Postillion Hotel Amsterdam",
+    "latitude": 52.33388,
+    "longitude": 4.9212403,
+    "stars": 4
+  },
+  {
+    "name": "XO Hotels Park West",
+    "rooms": 206,
+    "latitude": 52.385624,
+    "longitude": 4.847168,
+    "stars": 4
+  },
+  {
+    "name": "Andaz Amsterdam Prinsengracht - a concept by Hyatt",
+    "rooms": 122,
+    "latitude": 52.36786,
+    "longitude": 4.8828316,
+    "stars": 5
+  },
+  {
+    "name": "Renaissance Amsterdam Schiphol Airport Hotel",
+    "rooms": 250,
+    "latitude": 52.30476,
+    "longitude": 4.809465,
+    "stars": 4
+  },
+  {
+    "name": "citizenM Amstel Amsterdam",
+    "rooms": 215,
+    "latitude": 52.36089,
+    "longitude": 4.9064555,
+    "stars": 4
+  },
+  {
+    "name": "Leonardo Hotel Amsterdam Rembrandtpark",
+    "rooms": 446,
+    "latitude": 52.367943,
+    "longitude": 4.844059,
+    "stars": 4
+  },
+  {
+    "name": "Holiday Inn Express Amsterdam - South  an IHG Hotel",
+    "rooms": 80,
+    "latitude": 52.325855,
+    "longitude": 4.8670692,
+    "stars": 3
+  },
+  {
+    "name": "Sir Albert Hotel",
+    "rooms": 90,
+    "latitude": 52.354546,
+    "longitude": 4.887312,
+    "stars": 4
+  },
+  {
+    "name": "Hotel Espresso",
+    "rooms": 68,
+    "latitude": 52.36286,
+    "longitude": 4.8763723,
+    "stars": 3
+  },
+  {
+    "name": "Olympic Hotel",
+    "rooms": 309,
+    "latitude": 52.341457,
+    "longitude": 4.853175,
+    "stars": 4
+  },
+  {
+    "name": "Leonardo Royal Hotel Amsterdam",
+    "rooms": 490,
+    "latitude": 52.332424,
+    "longitude": 4.917847,
+    "stars": 4
+  },
+  {
+    "name": "Holiday Inn Express Amsterdam - North Riverside  an IHG Hotel",
+    "rooms": 438,
+    "latitude": 52.385242,
+    "longitude": 4.919162,
+    "stars": 3
+  },
+  {
+    "name": "Krisotel",
+    "rooms": 38,
+    "latitude": 52.365753,
+    "longitude": 4.879759,
+    "stars": 3
+  },
+  {
+    "name": "art'otel amsterdam  part of Radisson Hotel Group",
+    "rooms": 107,
+    "latitude": 52.37767,
+    "longitude": 4.8972154,
+    "stars": 4
+  },
+  {
+    "name": "Hard Rock Hotel Amsterdam American",
+    "rooms": 173,
+    "latitude": 52.363888,
+    "longitude": 4.881302,
+    "stars": 4
+  },
+  {
+    "name": "nhow Amsterdam Rai",
+    "rooms": 650,
+    "latitude": 52.338596,
+    "longitude": 4.891014,
+    "stars": 4
+  },
+  {
+    "name": "Hotel V Nesplein",
+    "rooms": 43,
+    "latitude": 52.3709,
+    "longitude": 4.8935738,
+    "stars": 4
+  },
+  {
+    "name": "The ED Amsterdam",
+    "rooms": 70,
+    "latitude": 52.364124,
+    "longitude": 4.878354,
+    "stars": 3
+  },
+  {
+    "name": "INNSiDE by Meli\u00e1 Amsterdam",
+    "latitude": 52.339676,
+    "longitude": 4.871608,
+    "stars": 4
+  },
+  {
+    "name": "Moxy Amsterdam Schiphol Airport",
+    "latitude": 52.291122,
+    "longitude": 4.726132,
+    "stars": 3
+  },
+  {
+    "name": "Van der Valk Hotel Amsterdam Zuidas -Rai",
+    "rooms": 234,
+    "latitude": 52.336304,
+    "longitude": 4.8877206,
+    "stars": 4
+  },
+  {
+    "name": "Amsterdam Canal Residence",
+    "rooms": 9,
+    "latitude": 52.359478,
+    "longitude": 4.895853,
+    "stars": 4
+  },
+  {
+    "name": "Hyatt Place Amsterdam Airport",
+    "rooms": 330,
+    "latitude": 52.29354,
+    "longitude": 4.7159753,
+    "stars": 4
+  }
+]

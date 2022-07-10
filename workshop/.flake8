@@ -1,0 +1,39 @@
+[flake8]
+;[C812] missing trailing comma
+;[C813] missing trailing comma in Python 3
+;[C814] missing trailing comma in Python 2
+;[C815] missing trailing comma in Python 3.5+
+;[C816] missing trailing comma in Python 3.6+
+;[C901] is too complex
+;[D100] Missing docstring in public module
+;[D101] Missing docstring in public class (e.g. Models' Meta)
+;[D102] Missing docstring in public method
+;[D104] Missing docstring in public package
+;[D105] Missing docstring in magic method
+;[D107] Missing docstring in __init__
+;[T003] use of Django-style assert statement found (instead of regular assert): assertTrue
+ignore = C812,C813,C814,C815,C816,C901,D100,D101,D102,D103,D104,D105,D106,D107,E203,T003,W503
+
+exclude =
+    __pycache__,
+    .tox,
+    .git,
+    locale,
+    docs,
+    venv,
+    migrations,
+    *.pyc,
+    .git,
+    test_*.py
+
+doctests = true
+enable-extensions=G
+max-complexity = 7
+max-line-length = 88
+inline-quotes = double
+
+;Select the formatter used to display errors to the user.
+format = "%(path)s:%(row)d:%(col)d %(code)s: %(text)s (https://lintlyci.github.io/Flake8Rules/rules/%(code)s.html)"
+
+;Display source code lines that violate rules
+show_source = True
